@@ -1,0 +1,60 @@
+{
+  "name": "@docsplus/extension-hyperlink",
+  "description": "Hyperlink component for docs.plus",
+  "version": "1.0.0",
+  "author": "Hossein Marzban",
+  "homepage": "https://docs.plus",
+  "keywords": [
+    "tiptap",
+    "tiptap extension",
+    "hyperlink",
+    "link"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "umd": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c",
+    "ts": "tsc -p tsconfig.json"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "linkifyjs": "^4.1.1",
+    "tippy.js": "^6.3.7"
+  },
+  "peerDependencies": {
+    "@tiptap/core": "^2.0.3",
+    "@tiptap/pm": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-typescript": "^7.22.5",
+    "@babel/preset-env": "^7.22.9",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "next-transpile-modules": "^10.0.0",
+    "rollup": "^3.26.2",
+    "rollup-plugin-auto-external": "^2.0.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6"
+  }
+}

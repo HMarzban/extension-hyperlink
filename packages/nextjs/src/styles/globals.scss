@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+
+}
+
+.tippy-svg-arrow {
+  svg{
+    bottom: 6px;
+    background: #fff;
+    fill: #aaa;
+  }
+}
+
+.hyperlinkLinkModal{
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #dadce0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+
+  box-shadow: 0 1px 3px 1px rgba(60,64,67,.15);
+
+
+
+  .hrefLink{
+    width: 300px;
+    font-size: .9rem;
+    margin-right: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .copy {
+    margin-left: auto;
+  }
+
+  form{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    input {
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      margin-bottom: 0.2rem;
+      width: 100%;
+      &:last-of-type{
+        margin-bottom: 0;
+      }
+    }
+    .buttonsWrapper{
+      margin-left: 8px;
+      button{
+        border-radius: 6px;
+        padding: 4px 14px;
+        width: 70px;
+        margin-bottom: 0.2rem;
+        color: #1a73e8;
+        &:hover{
+          background: rgba(26,115,232,.04);
+          color: #174ea6;
+        }
+      }
+    }
+  }
+
+   button{
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    margin:  0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s ease-in-out;
+    &:hover{
+      background-color: #eee;
+    }
+
+    > svg{
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+
+}
+
+.menuBar{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  > button{
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin:  0.25rem;
+    &[disabled]{
+      background-color: #eee;
+    }
+  }
+}
+
+/* Basic editor styles */
+.ProseMirror {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  padding: 6px;
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  a {
+    color: #68cef8;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0D0D0D;
+    color: #FFF;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0D0D0D, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0D0D0D, 0.1);
+    margin: 2rem 0;
+  }
+}
