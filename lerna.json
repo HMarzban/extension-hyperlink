@@ -2,6 +2,7 @@
   "packages": [
     "packages/*"
   ],
+  "useWorkspaces": true,
   "command": {
     "publish": {
       "conventionalCommits": true
@@ -9,5 +10,5 @@
   },
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useNx": true,
-  "version": "1.0.2"
+  "version": "1.0.4"
 }

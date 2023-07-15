@@ -13,10 +13,11 @@
   ],
   "engines": {
     "npm": "please-use-yarn",
-    "yarn": ">= 20.3.1"
+    "yarn": ">= 1.22.19"
   },
   "scripts": {
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "release": "lerna version major --no-push --no-git-tag-version"
   },
   "devDependencies": {
     "@atomico/rollup-plugin-sizes": "^1.1.4",
