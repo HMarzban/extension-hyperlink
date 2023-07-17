@@ -1,4 +1,4 @@
-import { Editor, Node } from "@tiptap/core";
+import { Editor } from "@tiptap/core";
 import { tippy } from "@docsplus/extension-hyperlink";
 import { find } from "linkifyjs";
 
@@ -8,6 +8,7 @@ type setHyperlinkModalOptions = {
   extentionName: string;
   attributes: Record<string, any>;
 };
+
 export default function setHyperlink(options: setHyperlinkModalOptions) {
   const { tippyModal } = tippy.init({ ...options, view: options.editor.view });
 

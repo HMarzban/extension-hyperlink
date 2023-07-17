@@ -1,9 +1,7 @@
-import { Editor, Node } from "@tiptap/core";
+import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
 import { tippy } from "@docsplus/extension-hyperlink";
-
 import { editeHyperlinkHandler } from "./editeHyperlink";
-
 import { Copy, LinkSlash, Pencil } from "../icons";
 
 type HyperlinkModalOptions = {
@@ -19,7 +17,6 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
   const href = options.link.href;
 
   const hyperlinkLinkModal = document.createElement("div");
-  let hrefLinkBubble = document.createElement("div");
   const removeButton = document.createElement("button");
   const copyButton = document.createElement("button");
   const editButton = document.createElement("button");
@@ -27,9 +24,7 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
   const newBubble = document.createElement("div");
   newBubble.classList.add("metadata");
   const hrefTitle = document.createElement("a");
-
   hrefTitle.innerText = href;
-
   newBubble.append(hrefTitle);
 
   fetch("/api/metadata", {
@@ -40,13 +35,11 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
     .then((response) => response.json())
     .then((data) => {
       // Create a new bubble with the title
-
       hrefTitle.setAttribute("href", href);
       hrefTitle.setAttribute("target", "_blank");
       hrefTitle.setAttribute("rel", "noreferrer");
 
       hrefTitle.innerText = data.title || data["og:title"] || href;
-
       newBubble.replaceChildren(hrefTitle);
 
       // Create an image element if image exists in metadata
@@ -56,10 +49,6 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
         img.alt = data.title || data["og:title"] || "hyperlink image";
         newBubble.appendChild(img);
       }
-
-      console.log(data);
-
-      // Replace old hrefLinkBubble with newBubble
     })
     .catch((error) => {
       console.error("Error fetching metadata:", error);

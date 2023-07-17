@@ -1,7 +1,6 @@
 import { Editor, Node } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
 import { tippy } from "@docsplus/extension-hyperlink";
-
 import { roundArrow } from "tippy.js";
 
 type EditHyperlinkModalOptions = {
