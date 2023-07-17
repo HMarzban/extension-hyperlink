@@ -1,7 +1,7 @@
 {
   "name": "@docsplus/extension-hyperlink",
   "description": "Hyperlink component for docs.plus",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Hossein Marzban",
   "homepage": "github.com/docs-plus/docs.plus",
   "keywords": [
