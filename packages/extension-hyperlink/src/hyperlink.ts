@@ -1,11 +1,9 @@
 import { Mark, markPasteRule, mergeAttributes } from "@tiptap/core";
 import { Plugin } from "@tiptap/pm/state";
 import { find, registerCustomProtocol, reset } from "linkifyjs";
-
 import autoHyperlink from "./helpers/autoHyperlink";
 import clickHandler from "./helpers/clickHandler";
 import { pasteHandler } from "./helpers/pasteHandler";
-
 import editHyperlinkHelper from "./helpers/editHyperlink";
 
 export interface LinkProtocolOptions {

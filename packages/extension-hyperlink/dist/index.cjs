@@ -147,8 +147,7 @@ const blurHandler = ({ event }) => {
         preventHide = false;
         return;
     }
-    if ((event === null || event === void 0 ? void 0 : event.relatedTarget) &&
-        ((_a = tippyWrapper.parentNode) === null || _a === void 0 ? void 0 : _a.contains(event.relatedTarget))) {
+    if ((event === null || event === void 0 ? void 0 : event.relatedTarget) && ((_a = tippyWrapper.parentNode) === null || _a === void 0 ? void 0 : _a.contains(event.relatedTarget))) {
         return;
     }
     hide();

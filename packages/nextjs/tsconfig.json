@@ -20,7 +20,7 @@
     "baseUrl": "."
   },
   "paths": {
-    "@docsplus/*": ["../../packages/*/dist", "../../packages/*/src"]
+    "@docsplus/*": [ "../../packages/*/src"]
   },
   "include": [
     "next-env.d.ts",

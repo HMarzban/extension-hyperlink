@@ -58,10 +58,7 @@ const blurHandler = ({ event }: { event: FocusEvent }) => {
     preventHide = false;
     return;
   }
-  if (
-    event?.relatedTarget &&
-    tippyWrapper.parentNode?.contains(event.relatedTarget as Node)
-  ) {
+  if (event?.relatedTarget && tippyWrapper.parentNode?.contains(event.relatedTarget as Node)) {
     return;
   }
   hide();
@@ -91,10 +88,7 @@ const createTooltip = () => {
   });
 
   if (tippyInstance.popper.firstChild) {
-    (tippyInstance.popper.firstChild as HTMLElement).addEventListener(
-      "blur",
-      tippyBlurHandler
-    );
+    (tippyInstance.popper.firstChild as HTMLElement).addEventListener("blur", tippyBlurHandler);
   }
 };
 

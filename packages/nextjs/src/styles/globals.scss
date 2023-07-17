@@ -35,20 +35,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-
+  padding: 6px 6px;
   box-shadow: 0 1px 3px 1px rgba(60,64,67,.15);
 
-
-
-  .hrefLink{
-    width: 300px;
-    font-size: .9rem;
-    margin-right: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .metadata{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    a{
+      font-size: .9rem;
+      margin-right: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    img{
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
   }
+
   .copy {
     margin-left: auto;
   }
@@ -84,10 +94,10 @@ body {
   }
 
    button{
-    width: 40px;
+    width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin:  0.25rem;
+    margin: 0  0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,7 +111,7 @@ body {
       height: 16px;
     }
   }
-  
+
 
 }
 

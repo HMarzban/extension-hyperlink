@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import urlMetadata from "url-metadata";
-
+import getMetaData from "metadata-scraper";
 type Data = {
   [key: string]: any;
 };
@@ -19,7 +19,7 @@ export default async function handler(
     if (!url) return res.status(400).json({ message: "URL is required" });
 
     try {
-      const metadata = await urlMetadata(url);
+      const metadata = await getMetaData(url);
       return res.status(200).json(metadata);
     } catch (error: unknown) {
       // We need to check that error is an instance of Error before accessing `message`
