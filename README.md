@@ -9,11 +9,11 @@ This is a powerful extension for the [Tiptap](https://tiptap.dev/) editor that g
 ## 🚀 Features
 
 - Edit hyperlink text and URL using straightforward commands:
-- editor.commands.editHyperLinkText('New Text')
-- editor.commands.editHyperLinkHref('<https://new-url.com>')
-- editor.commands.editHyperlink({ newText: 'New Text', newURL: '<https://new-url.com>' })
+  - `editor.commands.editHyperLinkText('New Text')`
+  - `editor.commands.editHyperLinkHref('<https://new-url.com>')`
+  - `editor.commands.editHyperlink({ newText: 'New Text', newURL: '<https://new-url.com>' })`
 - Configurable modals for hyperlink previews and setting hyperlinks. Users can develop any UI for the extension and extend the extension with the modal.
-- Hyperlink.configure({ modals: { previewHyperlink: (data) => { return previewHyperlinkModal(data); }, setHyperlink: (data) => { return setHyperlinks(data); }, } }), For more details take a look at the extension [document](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
+  - `Hyperlink.configure({ modals: { previewHyperlink: (data) => { return previewHyperlinkModal(data); }, setHyperlink: (data) => { return setHyperlinks(data); }, } })`, For more details take a look at the extension [document](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
 
 ## 🎨 Headless UI
 
