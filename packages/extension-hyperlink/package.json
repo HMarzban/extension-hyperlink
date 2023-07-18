@@ -1,7 +1,7 @@
 {
   "name": "@docs.plus/extension-hyperlink",
   "description": "Hyperlink component for docs.plus",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "author": "Hossein Marzban",
   "homepage": "http://github.com/docs-plus/docs.plus",
   "keywords": [
@@ -39,6 +39,5 @@
   "peerDependencies": {
     "@tiptap/core": "^2.0.3",
     "@tiptap/pm": "^2.0.3"
-  },
-  "devDependencies": {}
+  }
 }

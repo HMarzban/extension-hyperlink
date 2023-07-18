@@ -1,6 +1,6 @@
 {
   "name": "@docs.plus/demo",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@docs.plus/extension-hyperlink": "^1.0.4",
+    "@docs.plus/extension-hyperlink": "^1.1.0",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-list-item": "^2.0.3",
     "@tiptap/extension-text-style": "^2.0.3",
