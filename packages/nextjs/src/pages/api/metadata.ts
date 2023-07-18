@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import urlMetadata from "url-metadata";
 import getMetaData from "metadata-scraper";
+
 type Data = {
   [key: string]: any;
 };
