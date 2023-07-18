@@ -1,5 +1,5 @@
 import { Editor } from "@tiptap/core";
-import { tippy } from "@docsplus/extension-hyperlink";
+import { tippy } from "@docs.plus/extension-hyperlink";
 import { find } from "linkifyjs";
 
 type setHyperlinkModalOptions = {

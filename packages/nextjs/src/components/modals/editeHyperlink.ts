@@ -1,6 +1,6 @@
 import { Editor, Node } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
-import { tippy } from "@docsplus/extension-hyperlink";
+import { tippy } from "@docs.plus/extension-hyperlink";
 import { roundArrow } from "tippy.js";
 import { find } from "linkifyjs";
 

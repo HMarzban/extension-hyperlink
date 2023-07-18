@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@docsplus/extension-hyperlink": "^1.0.3",
+    "@docs.plus/extension-hyperlink": "^1.0.4",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-list-item": "^2.0.3",
     "@tiptap/extension-text-style": "^2.0.3",
@@ -23,6 +23,7 @@
     "axios": "^1.4.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
+    "jsdom": "^22.1.0",
     "metadata-scraper": "^0.2.61",
     "next": "13.4.8",
     "postcss": "8.4.24",

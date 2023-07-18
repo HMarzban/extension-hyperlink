@@ -19,7 +19,7 @@
     "sourceMap": true,
     "baseUrl": "./",
     "paths": {
-      "@docsplus/*": ["packages/*/dist", "packages/*/src"]
+      "@@docs.plus/*": ["packages/*/dist", "packages/*/src"]
     },
   },
   "include": ["next-env.d.ts", "packages/**/*.ts", "packages/**/*.tsx"],

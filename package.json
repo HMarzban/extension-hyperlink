@@ -18,7 +18,8 @@
   "scripts": {
     "build": "lerna run build",
     "release": "lerna version --no-push --no-git-tag-version",
-    "update:packages": "ncu -u"
+    "update:packages": "ncu -u",
+    "dev": "npx lerna run dev --scope=@docs.plus/demo"
   },
   "devDependencies": {
     "@atomico/rollup-plugin-sizes": "^1.1.4",

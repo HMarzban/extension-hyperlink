@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
-import { tippy } from "@docsplus/extension-hyperlink";
+import { tippy } from "@docs.plus/extension-hyperlink";
 import { editeHyperlinkHandler } from "./editeHyperlink";
 import { Copy, LinkSlash, Pencil } from "../icons";
 
