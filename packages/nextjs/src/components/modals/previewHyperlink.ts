@@ -23,8 +23,13 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
 
   const newBubble = document.createElement("div");
   newBubble.classList.add("metadata");
+
   const hrefTitle = document.createElement("a");
+  hrefTitle.setAttribute("target", "_blank");
+  hrefTitle.setAttribute("rel", "noreferrer");
+  hrefTitle.setAttribute("href", href);
   hrefTitle.innerText = href;
+
   newBubble.append(hrefTitle);
 
   fetch("/api/metadata", {
@@ -36,8 +41,6 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
     .then((data) => {
       // Create a new bubble with the title
       hrefTitle.setAttribute("href", href);
-      hrefTitle.setAttribute("target", "_blank");
-      hrefTitle.setAttribute("rel", "noreferrer");
 
       hrefTitle.innerText = data.title || data["og:title"] || href;
       newBubble.replaceChildren(hrefTitle);
