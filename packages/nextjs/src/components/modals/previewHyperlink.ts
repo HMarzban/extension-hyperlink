@@ -69,7 +69,7 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
   copyButton.innerHTML = Copy();
 
   removeButton.addEventListener("click", () => {
-    tippy.destroyTooltip();
+    tippy.hide();
     return options.editor.chain().focus().unsetHyperlink().run();
   });
 

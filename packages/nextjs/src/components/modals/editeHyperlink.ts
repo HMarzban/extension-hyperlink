@@ -88,7 +88,7 @@ export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
       newText: newLinkText,
     });
 
-    tippy.destroyTooltip();
+    tippy.hide();
   });
 
   // Show tooltip
