@@ -87,11 +87,9 @@ class Tooltip {
       placement: "bottom",
       hideOnClick: "toggle",
       onClickOutside: (instance, event) => {
-        console.log("onClickOutside", { instance, event });
         this.hide();
       },
       onAfterUpdate: (instance, partialProps) => {
-        console.log("onAfterUpdate", { instance, partialProps });
         this.show();
       },
     });

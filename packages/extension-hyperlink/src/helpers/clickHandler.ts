@@ -59,6 +59,7 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         const hyperlinkPreview = options.modals.previewHyperlink({
           link,
           nodePos,
+          tippy: tooltip,
           ...options,
         });
 
