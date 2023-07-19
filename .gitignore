@@ -1,1 +1,5 @@
 node_modules
+dist
+# packaged files
+packages/**/*.tgz
+packages/**/dist
