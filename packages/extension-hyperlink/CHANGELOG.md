@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/HMarzban/extension-hyperlink/compare/v1.0.4...v1.2.0) (2023-07-19)
+
+**Note:** Version bump only for package @docs.plus/extension-hyperlink
+
+
+
+
+
 # [1.1.0](https://github.com/HMarzban/extension-hyperlink/compare/v1.0.4...v1.1.0) (2023-07-18)
 
 **Note:** Version bump only for package @docs.plus/extension-hyperlink
