@@ -3,8 +3,7 @@ import { MarkType } from "@tiptap/pm/model";
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
-import * as tippy from "./tippyHelper";
-// import "tippy.js/dist/svg-arrow.css";
+import Tooltip from "./tippyHelper";
 
 // Define type for the ClickHandlerOptions
 type ClickHandlerOptions = {
@@ -19,7 +18,11 @@ type ClickHandlerOptions = {
 };
 
 export default function clickHandler(options: ClickHandlerOptions): Plugin {
-  const { tippyModal } = tippy.init(options);
+  // Create the tooltip instance
+  let tooltip = new Tooltip(options);
+
+  // Initialize the tooltip
+  let { tippyModal, tippyInstance } = tooltip.init();
 
   return new Plugin({
     key: new PluginKey("handleClickHyperlink"),
@@ -50,7 +53,7 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         }
 
         // if the link does not contain href attribute, hide the tooltip
-        if (!link?.href) return tippy.hide();
+        if (!link?.href) return tooltip.hide();
 
         // Create a preview of the hyperlink
         const hyperlinkPreview = options.modals.previewHyperlink({
@@ -60,14 +63,18 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         });
 
         // If there is no hyperlink preview, hide the modal
-        if (!hyperlinkPreview) return tippy.hide();
+        if (!hyperlinkPreview) return tooltip.hide();
 
         // Empty the modal and append the hyperlink preview box
-        tippyModal.innerHTML = "";
+
+        while (tippyModal.firstChild) {
+          tippyModal.removeChild(tippyModal.firstChild);
+        }
+
         tippyModal.append(hyperlinkPreview);
 
         // Update the modal position
-        tippy.update(options.view);
+        tooltip.update(options.view);
 
         return false;
       },

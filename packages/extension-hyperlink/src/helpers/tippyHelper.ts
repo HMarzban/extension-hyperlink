@@ -3,124 +3,136 @@ import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
 import { getAttributes, posToDOMRect } from "@tiptap/core";
 
-let tippyInstance: Instance | undefined;
-let preventHide: boolean = false;
-let tippyWrapper: HTMLDivElement;
-let editor: Editor;
-let view: EditorView;
-
-type TippyInitOptions = {
+interface TippyInitOptions {
   editor: Editor;
   validate?: (url: string) => boolean;
   view: EditorView;
-};
+}
 
-export const init = (options: TippyInitOptions) => {
-  editor = options.editor;
-  view = options.view;
-  if (!tippyInstance) {
-    tippyWrapper = document.createElement("div");
-    tippyWrapper.addEventListener("mousedown", mousedownHandler, {
+class Tooltip {
+  private tippyInstance?: Instance;
+  private preventHide: boolean = false;
+  private tippyWrapper: HTMLDivElement;
+  private editor: Editor;
+  private view: EditorView;
+
+  constructor(options: TippyInitOptions) {
+    this.editor = options.editor;
+    this.view = options.view;
+    this.tippyWrapper = document.createElement("div");
+    this.tippyWrapper.addEventListener("mousedown", this.mousedownHandler, {
       capture: true,
     });
-    view.dom.addEventListener("dragstart", dragstartHandler);
-    editor.on("focus", focusHandler);
-    editor.on("blur", blurHandler);
+    this.view.dom.addEventListener("dragstart", this.dragstartHandler);
+    this.editor.on("blur", this.blurHandler);
   }
 
-  return { tippyModal: tippyWrapper, tippyInstance: tippyInstance };
-};
+  init() {
+    this.tippyWrapper.innerHTML = "";
 
-export const show = () => {
-  tippyInstance?.show();
-  return true;
-};
-
-export const hide = () => {
-  setTimeout(() => tippyInstance?.hide());
-  return false;
-};
-
-export const mousedownHandler = () => {
-  preventHide = true;
-};
-
-export const dragstartHandler = () => {
-  hide();
-};
-
-export const focusHandler = () => {
-  setTimeout(() => update(editor.view));
-};
-
-const blurHandler = ({ event }: { event: FocusEvent }) => {
-  if (preventHide) {
-    preventHide = false;
-    return;
-  }
-  if (event?.relatedTarget && tippyWrapper.parentNode?.contains(event.relatedTarget as Node)) {
-    return;
-  }
-  hide();
-};
-
-const tippyBlurHandler = (event: FocusEvent) => {
-  blurHandler({ event });
-};
-
-const createTooltip = () => {
-  if (!editor || !editor.options) return;
-  const { element: editorElement } = editor.options;
-  const editorIsAttached = !!editorElement.parentElement;
-
-  if (tippyInstance || !editorIsAttached) {
-    return;
+    return { tippyModal: this.tippyWrapper, tippyInstance: this.tippyInstance };
   }
 
-  tippyInstance = tippy(editorElement, {
-    duration: 0,
-    getReferenceClientRect: null,
-    content: tippyWrapper,
-    interactive: true,
-    trigger: "manual",
-    placement: "bottom",
-    hideOnClick: "toggle",
-  });
-
-  if (tippyInstance.popper.firstChild) {
-    (tippyInstance.popper.firstChild as HTMLElement).addEventListener("blur", tippyBlurHandler);
+  show() {
+    this.tippyInstance?.show();
+    return true;
   }
-};
 
-export const update = (view: EditorView, option: any = {}) => {
-  createTooltip();
+  hide() {
+    setTimeout(() => this.tippyInstance?.hide());
+    return false;
+  }
 
-  // Ensure 'arrow' is false when not provided
-  option.arrow = option?.arrow ?? false;
+  private mousedownHandler = () => {
+    this.preventHide = true;
+  };
 
-  if (tippyInstance) {
-    tippyInstance.setProps({
-      ...option,
-      getReferenceClientRect: () => {
-        const pos = view.state.selection.from;
-        return posToDOMRect(view, pos, pos);
+  private dragstartHandler = () => {
+    this.hide();
+  };
+
+  private blurHandler = ({ event }: { event: FocusEvent }) => {
+    if (this.preventHide) {
+      this.preventHide = false;
+      return;
+    }
+    if (
+      event?.relatedTarget &&
+      this.tippyWrapper.parentNode?.contains(event.relatedTarget as Node)
+    ) {
+      return;
+    }
+    this.hide();
+  };
+
+  private tippyBlurHandler = (event: FocusEvent) => {
+    this.blurHandler({ event });
+  };
+
+  private createTooltip() {
+    if (!this.editor || !this.editor.options) return;
+    const { element: editorElement } = this.editor.options;
+    const editorIsAttached = !!editorElement.parentElement;
+
+    if (this.tippyInstance || !editorIsAttached) {
+      return;
+    }
+
+    this.tippyInstance = tippy(editorElement, {
+      duration: 0,
+      getReferenceClientRect: null,
+      content: this.tippyWrapper,
+      interactive: true,
+      trigger: "manual",
+      placement: "bottom",
+      hideOnClick: "toggle",
+      onClickOutside: (instance, event) => {
+        console.log("onClickOutside", { instance, event });
+        this.hide();
+      },
+      onAfterUpdate: (instance, partialProps) => {
+        console.log("onAfterUpdate", { instance, partialProps });
+        this.show();
       },
     });
-    show();
+
+    if (this.tippyInstance.popper.firstChild) {
+      (this.tippyInstance.popper.firstChild as HTMLElement).addEventListener(
+        "blur",
+        this.tippyBlurHandler
+      );
+    }
   }
 
-  return {};
-};
+  update(view: EditorView, option: any = {}) {
+    this.createTooltip();
 
-export const destroyTooltip = () => {
-  if (tippyInstance) {
-    tippyInstance.destroy();
-    tippyInstance = undefined;
-    tippyWrapper.removeEventListener("mousedown", mousedownHandler, {
-      capture: true,
-    });
-    view.dom.removeEventListener("dragstart", dragstartHandler);
-    editor.off("focus", focusHandler);
-    editor.off("blur", blurHandler);
+    option.arrow = option?.arrow ?? false;
+
+    if (this.tippyInstance) {
+      this.tippyInstance.setProps({
+        ...option,
+        getReferenceClientRect: () => {
+          const pos = view.state.selection.from;
+          return posToDOMRect(view, pos, pos);
+        },
+      });
+    }
+
+    return {};
   }
-};
+
+  destroyTooltip() {
+    if (this.tippyInstance) {
+      this.tippyInstance.destroy();
+      this.tippyInstance = undefined;
+      this.tippyWrapper.removeEventListener("mousedown", this.mousedownHandler, {
+        capture: true,
+      });
+      this.view.dom.removeEventListener("dragstart", this.dragstartHandler);
+      this.editor.off("blur", this.blurHandler);
+    }
+  }
+}
+
+export default Tooltip;
