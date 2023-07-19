@@ -1,8 +1,8 @@
 import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
-import { tippy } from "@docs.plus/extension-hyperlink";
 import { editeHyperlinkHandler } from "./editeHyperlink";
 import { Copy, LinkSlash, Pencil } from "../icons";
+import { Tooltip } from "@docs.plus/extension-hyperlink";
 
 type HyperlinkModalOptions = {
   editor: Editor;
@@ -11,6 +11,7 @@ type HyperlinkModalOptions = {
   link: HTMLAnchorElement;
   node?: any;
   nodePos: number;
+  tippy: Tooltip;
 };
 
 export default function previewHyperlink(options: HyperlinkModalOptions) {
@@ -69,7 +70,7 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
   copyButton.innerHTML = Copy();
 
   removeButton.addEventListener("click", () => {
-    tippy.hide();
+    options.tippy.hide();
     return options.editor.chain().focus().unsetHyperlink().run();
   });
 
@@ -78,7 +79,7 @@ export default function previewHyperlink(options: HyperlinkModalOptions) {
   );
 
   copyButton.addEventListener("click", () => {
-    tippy.hide();
+    options.tippy.hide();
     navigator.clipboard.writeText(href);
   });
 
