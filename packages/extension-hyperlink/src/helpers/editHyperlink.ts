@@ -13,16 +13,20 @@ export default function editHyperlink(options: EditHyperlinkOptions) {
   const { from, to } = state.selection;
   let link: HTMLAnchorElement | null = null;
 
-  const selectedNode = options.editor.view.domAtPos(from).node as HTMLElement;
+  const selectedNode = options.editor.view.domAtPos(from - 1).node as HTMLElement;
   const nodeName = selectedNode?.nodeName;
 
   if (nodeName === "#text") {
     link = (selectedNode.parentNode as HTMLElement)?.closest("a");
-  } else if (nodeName === "P" && selectedNode?.firstElementChild?.localName === "a") {
-    link = selectedNode?.firstElementChild as HTMLAnchorElement;
   } else {
     link = selectedNode?.closest("a");
   }
+
+  // If no link found and node is paragraph, try finding link in sibling/parent
+  if (!link && options.editor.view.domAtPos(from).node.nodeName === "P" && selectedNode.nextSibling)
+    link =
+      (selectedNode.nextSibling as HTMLAnchorElement) ||
+      (selectedNode.parentElement as HTMLAnchorElement);
 
   if (!link) return true;
 
