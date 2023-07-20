@@ -39,11 +39,9 @@ export default function editHyperlink(options: EditHyperlinkOptions) {
     .chain()
     .focus()
     .command(({ tr }) => {
-      // The command replaces the range from nodePos to nodePos + length of the text
-      // with a new text node with the provided text and a link mark with the sanitized URL
-      tr.replaceWith(
+      tr.deleteRange(nodePos, nodePos + (link?.innerText || "")?.length).replaceWith(
         nodePos,
-        nodePos + text?.length,
+        nodePos,
         options.editor.schema.text(text, [
           options.editor.schema.marks.hyperlink.create({
             href: sanitizeURL?.href,
