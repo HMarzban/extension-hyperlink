@@ -17,6 +17,7 @@ const Tiptap = () => {
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
       TextStyle.configure(),
       Hyperlink.configure({
+        hyperlinkOnPaste: false,
         openOnClick: true,
         modals: {
           previewHyperlink: (data) => {
