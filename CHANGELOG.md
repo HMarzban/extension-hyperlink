@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/HMarzban/extension-hyperlink/compare/v1.0.4...v1.3.2) (2023-07-21)
+
+
+### Bug Fixes
+
+* interfaces and types ([2715032](https://github.com/HMarzban/extension-hyperlink/commit/27150323de93cafc9e8463be1ac490342db46cd5))
+* link not clickable ([e39b2c8](https://github.com/HMarzban/extension-hyperlink/commit/e39b2c87d3c7e13d0bd2edf4363ef121e2d50797))
+* renam npm namespace ([79b4f23](https://github.com/HMarzban/extension-hyperlink/commit/79b4f235558440dc2717760c8bcb6bf5f55a0e80))
+* replace hyperlink with new text ([f20b889](https://github.com/HMarzban/extension-hyperlink/commit/f20b8894ae11958475c6875d07abc1431a8ce731))
+* select closet ancher element ([40ab594](https://github.com/HMarzban/extension-hyperlink/commit/40ab594a2c641f06acebbe21ac7aaa3848366ea5))
+* wrong selection of the anchor node ([9ff85cf](https://github.com/HMarzban/extension-hyperlink/commit/9ff85cfd17d8a325ae137942023c7290887ab1d7))
+
+
+### Features
+
+* form validation ([4ff36cc](https://github.com/HMarzban/extension-hyperlink/commit/4ff36cc5c0a3557cff46d409f8e5adbdd7aba5da))
+
+
+
+
+
 ## [1.3.1](https://github.com/HMarzban/extension-hyperlink/compare/v1.0.4...v1.3.1) (2023-07-20)
 
 
