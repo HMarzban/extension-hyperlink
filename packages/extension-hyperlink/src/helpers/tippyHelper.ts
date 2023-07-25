@@ -85,7 +85,7 @@ class Tooltip {
       interactive: true,
       trigger: "manual",
       placement: "bottom",
-      hideOnClick: "toggle",
+      hideOnClick: true,
       onClickOutside: (instance, event) => {
         this.hide();
       },
