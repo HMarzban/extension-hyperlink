@@ -112,7 +112,8 @@ class Tooltip {
         ...option,
         getReferenceClientRect: () => {
           const pos = view.state.selection.from;
-          return posToDOMRect(view, pos, pos);
+          // width: 0 is a hack to prevent tippy display in the wrong position
+          return { ...posToDOMRect(view, pos, pos), width: 0 };
         },
       });
     }
