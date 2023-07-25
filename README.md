@@ -1,80 +1,82 @@
-# 🖇️Hyperlink Extension for Tiptap Editor
+# Hyperlink Extension for Tiptap Editor
 
 ![Generic badge](https://img.shields.io/badge/version-1.0.0-green.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a powerful extension for the [Tiptap](https://tiptap.dev/) editor that greatly enhances the hyperlink functionality. Designed with user experience in mind, it seeks to bring <u>Google Docs link</u> plugin experience to Tiptap.
 
-## 🚀 Features
+Hey there! We're excited to present a game-changing extension for your [Tiptap](https://tiptap.dev/) editor that supercharges your hyperlink game. You know the sleek, easy-to-use Google Docs link plugin? Yeah, we've taken some inspiration from there and brought it over to Tiptap, just for you. So, get ready to enjoy a seamless, user-friendly experience!
 
-- Edit hyperlink text and URL using straightforward commands:
+
+## Exciting Features 💡
+Here's what you can do with our extension:
+
+- Editing your hyperlink text and URL is as easy as pie now! Just run these commands:
   - `editor.commands.editHyperLinkText('New Text')`
   - `editor.commands.editHyperLinkHref('<https://new-url.com>')`
   - `editor.commands.editHyperlink({ newText: 'New Text', newURL: '<https://new-url.com>' })`
-- Configurable modals for hyperlink previews and setting hyperlinks. Users can develop any UI for the extension and extend the extension with the modal.
-  - `Hyperlink.configure({ modals: { previewHyperlink: (data) => { return previewHyperlinkModal(data); }, setHyperlink: (data) => { return setHyperlinks(data); }, } })`, For more details take a look at the extension [document](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
+  - Customize your own hyperlink previews and set hyperlinks with modals. Get creative and design any UI for the extension, extend it, make it yours! To do this, use: `Hyperlink.configure({ modals: { previewHyperlink: (data) => { return previewHyperlinkModal(data); }, setHyperlink: (data) => { return setHyperlinks(data); }, } })`
 
-## 🎨 Headless UI
+  Curious to know more? Check out the full documentation [here](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
 
-We've developed the hyperlink extension as a headless UI. This means you can build your own interface while leveraging our underlying functionality. This is perfect for teams looking to maintain a consistent UI throughout their application.
+## All About You: Headless UI 💁‍♀️
 
-## 🔧 Setup
+We designed the hyperlink extension as a headless UI. You're in the driver's seat here! This means you can build your own interface while using our back-end functions. If you want to keep your application's UI consistent, this is perfect for you.
 
-To integrate the hyperlink extension into your project:
+## Setting Up - Easy As 1, 2, 3! 🔧
+Getting the hyperlink extension up and running on your project is super simple. Follow these steps:
 
 1. Install the package: `$ npm install @tiptap/extension-hyperlink`
 2. Import the extension into your project: `import Hyperlink from '@tiptap/extension-hyperlink'`
 3. Add the extension to your Tiptap Editor: `editor = new Editor({ extensions: [Hyperlink], })`;
 
-For more details, follow the hyperlink [document](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
 
-## 🏃‍♀️ Run the Demo
+You can find more detailed setup instructions [here](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink)..
 
-We have a handy demo example ready for you to check out and get hands-on with our Hyperlink extension. Here's how you can run the demo:
+## Test Drive With Our Demo 🚗
 
-### Step 1: Install Dependencies
+Want to take a spin with our Hyperlink extension? We have a demo ready for you:
 
-Before you can run the demo, you need to install the necessary dependencies. You can do this using the command:
+### Step 1: Get the Essentials
 
+Before hitting the road, make sure your tank's full! Install the necessary dependencies with:
 ```bash
 $ yarn install
 ```
 
 ### Step 2: Run the Demo
 
-Once the dependencies are installed, you can run the demo using the dev script:
-
+With everything in place, you're ready to go. Run the demo with:
 ```bash
 $ yarn dev
 ```
 
-This script will start the demo, allowing you to explore our Hyperlink extension's functionality in a practical setting.
+Now, you can explore all that our Hyperlink extension has to offer in a real-life setting. Enjoy the ride!
 
-## 💼 Use in Docs.plus
+## Making Your Docs.plus Even Better 💼
 
-This extension is primarily developed for the [docs.plus](http://github.com/docs-plus/docs.plus) project, an open-source, real-time collaboration tool. This tool, among other features, allows communities to share and organize information logically and hierarchically.
+This extension was primarily built for the [docs.plus](http://github.com/docs-plus/docs.plus) project, an open-source platform for real-time collaboration. With this tool, communities can share and organize information in a logical, hierarchical manner, just like they want it.
 
-## 📝 Future Features
+## What's Next? 🚀
+In our mission to make your life easier, we have some exciting features lined up:
 
-- Search and select all links in the document.
-- Select a heading and set it as an anchor to the text.
-And more!
+- Finding and selecting all links in the document.
+- Choosing a heading and setting it as an anchor to the text.
+- And much more on the way!
 
-## 📜 License
+## The Legal Bits 📜
+This project is under the MIT license, which means you're free to use, modify, distribute, and even sell your modifications under the same terms.
 
-This project is licensed under the terms of the MIT license. You're free to use, modify, distribute, and even sell your modifications under the same terms.
+## Join Our Journey 🤝
 
-## 🤝 Contribute
+We love hearing from our users. Your suggestions, your issues, your PRs - they're all welcome. So don't be shy, feel free to get in touch on GitHub.
 
-Contributions are always welcome! Feel free to open a PR or submit an issue on GitHub.
+We're grateful you chose our hyperlink extension. We hope it makes your Tiptap experience even better.
 
-Thank you for considering or using our hyperlink extension! We hope it enhances your Tiptap editor experience.
+# Hold On, We're Shifting Gears! 🚚
 
-# 🚚 We're Moving
+We're buzzing to let our amazing community know that we're reorganizing our resources. Our Hyperlink extension is now moving to the [Docs.plus repository](https://github.com/docs-plus/docs.plus/tree/main/packages/extension-hyperlink).
 
-Heads up to our awesome community! We're continuously working on improving and organizing our resources better. As part of this, our Hyperlink extension is making a move. It will now be hosted within the [Docs.plus repository](https://github.com/docs-plus/docs.plus/tree/main/packages/extension-hyperlink).
+This change will help us streamline our processes and make it easier for you to access all our projects from one central location.
 
-This move will streamline our processes and make it easier for you to access all our projects in one place.
-
-We're excited about this shift and hope you will join us on this new journey. Any questions or suggestions are always welcome. Your involvement makes Docs.plus better! 🙌
+We're thrilled about this shift and hope you're just as excited. We always welcome any questions or suggestions - your input helps make Docs.plus even better. Thanks for being a part of our journey! 🙌
