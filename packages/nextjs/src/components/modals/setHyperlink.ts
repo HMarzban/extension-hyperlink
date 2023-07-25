@@ -1,6 +1,7 @@
 import { Editor } from "@tiptap/core";
 import { Tooltip } from "@docs.plus/extension-hyperlink";
 import { find } from "linkifyjs";
+import { roundArrow } from "tippy.js";
 
 type setHyperlinkModalOptions = {
   editor: Editor;
@@ -9,12 +10,14 @@ type setHyperlinkModalOptions = {
   attributes: Record<string, any>;
 };
 
+let tooltip: Tooltip = undefined;
+
 export default function setHyperlink(options: setHyperlinkModalOptions) {
   // Create the tooltip instance
-  let tooltip = new Tooltip({ ...options, view: options.editor.view });
+  if (!tooltip) tooltip = new Tooltip({ ...options, view: options.editor.view });
 
   // Initialize the tooltip
-  let { tippyModal, tippyInstance } = tooltip.init();
+  let { tippyModal } = tooltip.init();
 
   const hyperlinkLinkModal = document.createElement("div");
   const buttonsWrapper = document.createElement("div");
@@ -43,7 +46,9 @@ export default function setHyperlink(options: setHyperlinkModalOptions) {
 
   tippyModal.innerHTML = "";
   tippyModal.append(hyperlinkLinkModal);
-  tooltip.update(options.editor.view);
+  tooltip.update(options.editor.view, {
+    arrow: roundArrow,
+  });
 
   // make sure
   setTimeout(() => {
