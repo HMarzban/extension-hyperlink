@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/HMarzban/extension-hyperlink/compare/v1.3.3...v1.3.4) (2023-07-25)
+
+
+### Bug Fixes
+
+* **@docs.plus/demo:** preven init tippy instance ([a14fed2](https://github.com/HMarzban/extension-hyperlink/commit/a14fed2409148f69ed38b05bff3581f8a1f35c27))
+* typo ([ea69c3d](https://github.com/HMarzban/extension-hyperlink/commit/ea69c3df87067caa595629dcbb5919f43e68bb3c))
+
+
+
+
+
 ## [1.3.2](https://github.com/HMarzban/extension-hyperlink/compare/v1.0.4...v1.3.2) (2023-07-21)
 
 
