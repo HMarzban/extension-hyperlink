@@ -12,7 +12,7 @@ type setHyperlinkModalOptions = {
 
 let tooltip: Tooltip = undefined;
 
-export default function setHyperlink(options: setHyperlinkModalOptions) {
+export default function setHyperlink(options: setHyperlinkModalOptions): void {
   // Create the tooltip instance
   if (!tooltip) tooltip = new Tooltip({ ...options, view: options.editor.view });
 
@@ -93,6 +93,4 @@ export default function setHyperlink(options: setHyperlinkModalOptions) {
       .setMeta("preventautohyperlink", true)
       .run();
   });
-
-  return tippyModal;
 }
