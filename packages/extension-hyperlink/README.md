@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/npm/v/@docs.plus/extension-hyperlink.svg?label=version)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 [![Downloads](https://img.shields.io/npm/dm/@docs.plus/extension-hyperlink.svg)](https://npmcharts.com/compare/tiptap?minimal=true)
-[![License](https://img.shields.io/npm/l/@tiptap/extension-link.svg)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
+[![License](https://img.shields.io/npm/l/@docs.plus/extension-hyperlink.svg)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 
 
 The Link extension adds support for `<a>` tags to the editor. The extension is headless too, there is no actual UI to add, modify or delete links. The usage example below uses the native JavaScript prompt to show you how that could work.
@@ -299,7 +299,7 @@ this.editor.getAttributes('link').href
 
 Hey there! Thanks so much for taking an interest in our Hyperlink extension, a part of the awesome world of docs.plus. At docs.plus, we're all about making collaboration and knowledge sharing not just simpler, but downright enjoyable!
 
-Let us share a little behind-the-scenes story with you. Our extension was inspired by Tiptap's [extension-link](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink). We were so impressed by their "headless" approach that we decided to take it further and add our own touch to make it even more user-friendly and versatile.
+Let us share a little behind-the-scenes story with you. Our extension was inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). We were so impressed by their "headless" approach that we decided to take it further and add our own touch to make it even more user-friendly and versatile.
 
 Now, let's be clear, we're not officially affiliated with Tiptap, but we firmly believe in giving credit where it's due. Their brilliant work laid the foundation for our extension, and we're truly grateful for that!
 
