@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/HMarzban/extension-hyperlink/compare/v1.3.7...v1.3.8) (2023-07-26)
+
+
+### Bug Fixes
+
+* **extension-hyperlink:** :pencil2: typo ([ca24462](https://github.com/HMarzban/extension-hyperlink/commit/ca24462c3338a8b4d109d81bc043d4db0414c75c))
+
+
+
+
+
 ## [1.3.7](https://github.com/HMarzban/extension-hyperlink/compare/v1.3.6...v1.3.7) (2023-07-26)
 
 **Note:** Version bump only for package docs.plus
