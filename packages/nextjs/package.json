@@ -9,31 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tiptap/extension-color": "^2.0.3",
-    "@tiptap/extension-list-item": "^2.0.3",
-    "@tiptap/extension-text-style": "^2.0.3",
-    "@tiptap/pm": "^2.0.3",
-    "@tiptap/react": "^2.0.3",
-    "@tiptap/starter-kit": "^2.0.3",
-    "@types/node": "20.3.3",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
-    "autoprefixer": "10.4.14",
-    "axios": "^1.4.0",
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.8",
+    "@tiptap/extension-color": "^2.1.11",
+    "@tiptap/extension-list-item": "^2.1.11",
+    "@tiptap/extension-text-style": "^2.1.11",
+    "@tiptap/pm": "^2.1.11",
+    "@tiptap/react": "^2.1.11",
+    "@tiptap/starter-kit": "^2.1.11",
+    "@types/node": "20.6.5",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.16",
+    "axios": "^1.5.0",
+    "eslint": "8.50.0",
+    "eslint-config-next": "13.5.2",
     "jsdom": "^22.1.0",
     "metadata-scraper": "^0.2.61",
-    "next": "13.4.8",
-    "postcss": "8.4.24",
+    "next": "13.5.2",
+    "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.63.6",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.1.6",
-    "url-metadata": "^3.0.2"
+    "sass": "^1.68.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2",
+    "url-metadata": "^3.3.0"
   },
   "devDependencies": {
-    "sass": "^1.63.6"
+    "sass": "^1.68.0"
   }
 }
