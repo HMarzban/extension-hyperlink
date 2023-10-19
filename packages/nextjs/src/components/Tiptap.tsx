@@ -3,11 +3,10 @@ import StarterKit from "@tiptap/starter-kit";
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
-import Hyperlink from "@docs.plus/extension-hyperlink";
-import previewHyperlinkModal from "./modals/previewHyperlink";
-import setHyperlinks from "./modals/setHyperlink";
+import { Hyperlink, previewHyperlink, setHyperlink } from "@docs.plus/extension-hyperlink";
 import editorContents from "./editorContents";
 import MenuBar from "./MenuBar";
+
 // make sure import this arrow.css
 import "tippy.js/dist/svg-arrow.css";
 
@@ -19,13 +18,9 @@ const Tiptap = () => {
       Hyperlink.configure({
         hyperlinkOnPaste: false,
         openOnClick: true,
-        modals: {
-          previewHyperlink: (data) => {
-            return previewHyperlinkModal(data);
-          },
-          setHyperlink: (data) => {
-            return setHyperlinks(data);
-          },
+        dialogBoxs: {
+          previewHyperlink: previewHyperlink,
+          setHyperlink: setHyperlink,
         },
       }),
       StarterKit.configure({
