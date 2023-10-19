@@ -7,7 +7,6 @@
 
 Hey there! We're excited to present a game-changing extension for your [Tiptap](https://tiptap.dev/) editor that supercharges your hyperlink game. You know the sleek, easy-to-use Google Docs link plugin? Yeah, we've taken some inspiration from there and brought it over to Tiptap, just for you. So, get ready to enjoy a seamless, user-friendly experience!
 
-
 ## Exciting Features 💡
 Here's what you can do with our extension:
 
@@ -96,6 +95,10 @@ $ yarn start
 ```
 
 Now, you can explore all that our <u>Hyperlink extension</u> has to offer in a real-life setting. Enjoy the ride!
+
+### Gif Time! 🎉
+
+![hyperlin-demo](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/nextjs/public/hyperlink-demo.gif)
 
 
 ## What's Next? 🚀

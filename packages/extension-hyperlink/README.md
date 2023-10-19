@@ -214,7 +214,7 @@ Hyperlink.configure({
   },
 })
 ````
-> Note: The `previewHyperlink` and `setHyperlink` dialogs are prebuilt dialog boxes. You can use them or create your own dialog boxes. To learn how to create your own dialog boxes, please check the[source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/dialogBoxs)
+> Note: The `previewHyperlink` and `setHyperlink` dialogs are prebuilt dialog boxes. You can use them or create your own dialog boxes. To learn how to create your own dialog boxes, please check the [source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/dialogBoxs)
 
 
 ### Removing and overriding existing html attributes
