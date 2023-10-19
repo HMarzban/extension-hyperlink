@@ -98,7 +98,7 @@ Now, you can explore all that our <u>Hyperlink extension</u> has to offer in a r
 
 ### Gif Time! 🎉
 
-![hyperlin-demo](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/nextjs/public/hyperlink-demo.gif)
+![hyperlin-demo](https://raw.githubusercontent.com/HMarzban/extension-hyperlink/main/packages/nextjs/public/hyperlink-demo.gif)
 
 
 ## What's Next? 🚀
