@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/npm/l/@docs.plus/extension-hyperlink.svg)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 
 
-The Link extension adds support for `<a>` tags to the editor. The extension is headless too, there is no actual UI to add, modify or delete links. The usage example below uses the native JavaScript prompt to show you how that could work.
+The Link extension adds support for `<a>` tags to the editor. The extension is headless too, there is no actual <u>**UI**</u> to add, modify or delete links. The usage example below uses the native JavaScript prompt to show you how that could work.
 
 In a real world application, you would probably add a more sophisticated user interface.
 
@@ -92,17 +92,17 @@ Hyperlink.configure({
 })
 ````
 
-### Modals
+### DialogBoxs
 
-The modals configuration option lets you incorporate an interactive user interface similar to Google Docs for setting and previewing hyperlinks. This provides users with a more intuitive and interactive experience;
+The DialogBox configuration option lets you incorporate an interactive user interface similar to Google Docs for **setting** and **previewing** hyperlinks. This provides users with a more intuitive and interactive experience;
 - [Dive into the code](https://github.com/HMarzban/extension-hyperlink/blob/4f37ffa18237f10d76c316844b1c2ab20b751fe9/packages/nextjs/src/components/Tiptap.tsx#L21-L28)
 - [Demo](https://github.com/HMarzban/extension-hyperlink#test-drive-with-our-demo-)
 
 <details>
-<summary>The `previewHyperlinkModal` function</summary>
+<summary>The `previewHyperlinkDialogBox` function</summary>
 
 ```ts
-type HyperlinkModalOptions = {
+type HyperlinkDialogBoxOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
   view: EditorView;
@@ -112,9 +112,9 @@ type HyperlinkModalOptions = {
   tippy: Tooltip;
 };
 
-const previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
+const previewHyperlink(options: HyperlinkDialogBoxOptions): HTMLElement {
   const href = options.link.href;
-  const hyperlinkLinkModal = document.createElement("div");
+  const hyperlinkLinkDialogBox = document.createElement("div");
 
   const hrefTitle = document.createElement("a");
   hrefTitle.setAttribute("target", "_blank");
@@ -122,9 +122,9 @@ const previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
   hrefTitle.setAttribute("href", href);
   hrefTitle.innerText = href;
 
-  hyperlinkLinkModal.append(hrefTitle);
+  hyperlinkLinkDialogBox.append(hrefTitle);
 
-  return hyperlinkLinkModal;
+  return hyperlinkLinkDialogBox;
 }
 ```
 
@@ -134,7 +134,7 @@ const previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
 <summary>The `setHyperlinks` function</summary>
 
 ```ts
-type setHyperlinkModalOptions = {
+type setHyperlinkDialogOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
   extentionName: string;
@@ -144,18 +144,18 @@ type setHyperlinkModalOptions = {
 let tooltip: Tooltip = undefined;
 
 
-const setHyperlink(options: setHyperlinkModalOptions): void {
+const setHyperlink(options: setHyperlinkDialogOptions): void {
   // Create the tooltip instance
   if (!tooltip) tooltip = new Tooltip({ ...options, view: options.editor.view });
 
   // Initialize the tooltip
   let { tippyModal } = tooltip.init();
 
-  const hyperlinkLinkModal = document.createElement("div");
+  const hyperlinkLinkDialog = document.createElement("div");
   const buttonsWrapper = document.createElement("div");
   const inputsWrapper = document.createElement("div");
 
-  hyperlinkLinkModal.classList.add("hyperlinkLinkModal");
+  hyperlinkLinkDialog.classList.add("hyperlinkLinkDialog");
 
   buttonsWrapper.classList.add("buttonsWrapper");
   inputsWrapper.classList.add("inputsWrapper");
@@ -174,10 +174,10 @@ const setHyperlink(options: setHyperlinkModalOptions): void {
   buttonsWrapper.append(button);
   form.append(inputsWrapper, buttonsWrapper);
 
-  hyperlinkLinkModal.append(form);
+  hyperlinkLinkDialog.append(form);
 
   tippyModal.innerHTML = "";
-  tippyModal.append(hyperlinkLinkModal);
+  tippyModal.append(hyperlinkLinkDialog);
 
     // event listenr for submit button
   form.addEventListener("submit", (event) => {
@@ -197,17 +197,25 @@ const setHyperlink(options: setHyperlinkModalOptions): void {
 </details>
 
 ````ts
+import {
+  Hyperlink,
+  previewHyperlink,
+  setHyperlink
+} from "@docs.plus/extension-hyperlink";
+
 Hyperlink.configure({
-  modals: {
+  dialogBoxs: {
     previewHyperlink: (data) => {
-      return previewHyperlinkModal(data);
+      return previewHyperlink(data);
     },
     setHyperlink: (data) => {
-      return setHyperlinks(data);
+      return setHyperlink(data);
     },
   },
 })
 ````
+> Note: The `previewHyperlink` and `setHyperlink` dialogs are prebuilt dialog boxes. You can use them or create your own dialog boxes. To learn how to create your own dialog boxes, please check the[source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/dialogBoxs)
+
 
 ### Removing and overriding existing html attributes
 
@@ -226,8 +234,6 @@ Hyperlink.configure({
   },
 })
 ````
-
-
 
 ### validate
 
@@ -249,11 +255,12 @@ Hyperlink.configure({
 These commands allow you to edit the text and href value of a hyperlink.
 
 ```js
-this.editor.commands.editHyperLinkText('New Text')
-this.editor.commands.editHyperLinkHref('https://new-url.com')
+this.editor.commands.editHyperLinkText('New Text');
+this.editor.commands.editHyperLinkHref('https://new-url.com');
 this.editor.commands.editHyperlink({
-  newText: 'New Text', newURL: 'https://new-url.com'
-})
+  newText: 'New Text',
+  newURL: 'https://new-url.com'
+});
 ```
 
 ### setHyperlink()
@@ -261,9 +268,16 @@ this.editor.commands.editHyperlink({
 Links the selected text.
 
 ````js
-this.editor.commands.setHyperlink({ href: '<https://example.com>' })
-this.editor.commands.setHyperlink({ href: '<https://example.com>', target: '_blank' })
-this.editor.commands.unsetHyperlink()
+this.editor.commands.setHyperlink({
+  href: '<https://example.com>'
+});
+
+this.editor.commands.setHyperlink({
+  href: '<https://example.com>',
+  target: '_blank'
+});
+
+this.editor.commands.unsetHyperlink();
 ````
 
 ### unsetHyperlink()
@@ -271,7 +285,7 @@ this.editor.commands.unsetHyperlink()
 Removes a Hyperlink.
 
 ````js
-this.editor.commands.unsetHyperlink()
+this.editor.commands.unsetHyperlink();
 ````
 
 ## Keyboard shortcuts
