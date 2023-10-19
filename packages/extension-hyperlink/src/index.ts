@@ -1,7 +1,17 @@
-import { Hyperlink } from "./hyperlink";
-import Tooltip from "./helpers/tippyHelper";
-
-export { Tooltip };
 export * from "./hyperlink";
 
-export default Hyperlink;
+export * from "./helpers/tippyHelper";
+
+export * from "./dialogBoxs/previewHyperlink";
+
+export * from "./dialogBoxs/setHyperlink";
+
+import { previewHyperlink } from "./dialogBoxs/previewHyperlink";
+
+import { setHyperlink } from "./dialogBoxs/setHyperlink";
+
+import Tooltip from "./helpers/tippyHelper";
+
+import { Hyperlink } from "./hyperlink";
+
+export { Hyperlink, Tooltip, previewHyperlink, setHyperlink };

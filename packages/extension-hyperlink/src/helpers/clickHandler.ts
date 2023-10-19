@@ -11,7 +11,7 @@ type ClickHandlerOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
   view: EditorView;
-  modal?: ((options: any) => HTMLElement) | null;
+  dialogBox?: ((options: any) => void | HTMLElement) | null;
 };
 
 export default function clickHandler(options: ClickHandlerOptions): Plugin {
@@ -41,8 +41,8 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         const href = link?.href ?? attrs.href;
         const target = link?.target ?? attrs.target;
 
-        // If there is no previewHyperlink modal provided, then open the link in new window
-        if (!options.modal) {
+        // If there is no previewHyperlink dialogBox provided, then open the link in new window
+        if (!options.dialogBox) {
           if (link && href) {
             window.open(href, target);
           }
@@ -53,17 +53,17 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         if (!link?.href) return tooltip.hide();
 
         // Create a preview of the hyperlink
-        const hyperlinkPreview = options.modal({
+        const hyperlinkPreview = options.dialogBox({
           link,
           nodePos,
           tippy: tooltip,
           ...options,
         });
 
-        // If there is no hyperlink preview, hide the modal
+        // If there is no hyperlink preview, hide the dialogBox
         if (!hyperlinkPreview) return tooltip.hide();
 
-        // Empty the modal and append the hyperlink preview box
+        // Empty the dialogBox and append the hyperlink preview box
 
         while (tippyModal.firstChild) {
           tippyModal.removeChild(tippyModal.firstChild);
@@ -71,7 +71,7 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
 
         tippyModal.append(hyperlinkPreview);
 
-        // Update the modal position
+        // Update the dialogBox position
         tooltip.update(options.view);
 
         return false;

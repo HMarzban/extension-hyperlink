@@ -33,13 +33,13 @@ export interface HyperlinkOptions {
    */
   HTMLAttributes: Record<string, any>;
   /**
-   * A list of modals to be rendered.
+   * A list of dialogBoxs to be rendered.
    * @default null
    * @example
    */
-  modals: {
-    previewHyperlink?: ((options: any) => HTMLElement) | null;
-    setHyperlink?: ((options: any) => void) | null;
+  dialogBoxs: {
+    previewHyperlink?: ((options: any) => void | HTMLElement) | null;
+    setHyperlink?: ((options: any) => void | HTMLElement) | null;
   };
   /**
    * A validation function that modifies link verification for the auto linker.
@@ -116,7 +116,7 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
         rel: "noopener noreferrer nofollow",
         class: null,
       },
-      modals: {
+      dialogBoxs: {
         previewHyperlink: null,
         setHyperlink: null,
       },
@@ -151,13 +151,13 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
       setHyperlink:
         (attributes) =>
         ({ editor, chain }) => {
-          if (!this.options.modals.setHyperlink) {
+          if (!this.options.dialogBoxs.setHyperlink) {
             return chain()
               .setMark(this.name, attributes)
               .setMeta("preventAutohyperlink", true)
               .run();
           } else {
-            this.options.modals.setHyperlink({
+            this.options.dialogBoxs.setHyperlink({
               editor,
               validate: this.options.validate,
               extentionName: this.name,
@@ -253,7 +253,7 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
           editor: this.editor,
           validate: this.options.validate,
           view: this.editor.view,
-          modal: this.options.modals.previewHyperlink,
+          dialogBox: this.options.dialogBoxs.previewHyperlink,
         })
       );
     }
