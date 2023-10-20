@@ -1,6 +1,6 @@
 # Hyperlink Extension for Tiptap Editor
 
-![Generic badge](https://img.shields.io/badge/version-1.0.0-green.svg)
+[![Version](https://img.shields.io/npm/v/@docs.plus/extension-hyperlink.svg?label=version)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -118,7 +118,7 @@ We love hearing from our users. Your suggestions, your issues, your PRs - they'r
 
 We're grateful you chose our hyperlink extension. We hope it makes your Tiptap experience even better.
 
-### Making Your Docs.plus Even Better 💼
+### Making Your docs.plus Even Better 💼
 
 This extension is primarily built for the [docs.plus](http://github.com/docs-plus/docs.plus) project, an open-source platform for real-time collaboration. With this tool, communities can share and organize information in a logical, hierarchical manner, just like they want it.
 

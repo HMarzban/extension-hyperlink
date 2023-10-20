@@ -5,11 +5,9 @@
 [![License](https://img.shields.io/npm/l/@docs.plus/extension-hyperlink.svg)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 
 
-The Link extension adds support for `<a>` tags to the editor. The extension is headless too, there is no actual <u>**UI**</u> to add, modify or delete links. The usage example below uses the native JavaScript prompt to show you how that could work.
+The Link extension adds support for `<a>` tags to the editor. The extension is headless, there is no actual <u>**UI**</u> to add, <u>modify</u> or <u>delete</u> links. The usage example below uses the native JavaScript prompt to show you how that could work.
 
 In a real world application, you would probably add a more sophisticated user interface.
-
-> Pasted URLs will be transformed to links automatically.
 
 ## Installation
 
@@ -311,14 +309,8 @@ this.editor.getAttributes('link').href
 
 ## Inspiration and Acknowledgment, Let's Connect
 
-Hey there! Thanks so much for taking an interest in our Hyperlink extension, a part of the awesome world of docs.plus. At docs.plus, we're all about making collaboration and knowledge sharing not just simpler, but downright enjoyable!
+Thank you for exploring our Hyperlink extension from docs.plus! We aim to make collaboration and knowledge sharing not just easy, but also enjoyable.
 
-Let us share a little behind-the-scenes story with you. Our extension was inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). We were so impressed by their "headless" approach that we decided to take it further and add our own touch to make it even more user-friendly and versatile.
+Our extension is inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). While we've incorporated our own enhancements, we'd like to tip our hats to Tiptap for pioneering the "headless" approach that we admire greatly. Please note: We're not affiliated with Tiptap, but we believe in recognizing foundational work.
 
-Now, let's be clear, we're not officially affiliated with Tiptap, but we firmly believe in giving credit where it's due. Their brilliant work laid the foundation for our extension, and we're truly grateful for that!
-
-But enough about us, let's talk about you! We genuinely appreciate your interest in our work. If you have any ideas or suggestions on how we can make this extension even better, or if you're simply curious about Docs.plus, we'd love to chat.
-
-If you want to dive deeper into what we're all about, feel free to explore the [docs.plus repository](https://github.com/docs-plus/docs.plus) - it's there for you!
-
-Once again, thank you for dropping by. We're thrilled to see what incredible things we can create together in this amazing world of open source!
+Your feedback and interest in docs.plus are invaluable to us. Share your thoughts, suggestions, or dive deeper into our mission at the [docs.plus](https://github.com/docs-plus/docs.plus) repository. Wish to converse? Connect with us [here](https://github.com/docs-plus/docs.plus#-connect-with-us).
