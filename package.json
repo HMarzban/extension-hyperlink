@@ -21,7 +21,9 @@
     "update:packages": "ncu -u",
     "dev": "npx lerna run dev --scope=@docs.plus/demo",
     "server": "npx lerna run server --scope=@docs.plus/demo",
-    "start": "concurrently \"npx @hocuspocus/cli --sqlite\" \"yarn dev\""
+    "start": "concurrently \"npx @hocuspocus/cli --sqlite\" \"yarn dev\"",
+    "lint": "eslint --cache --quiet --no-error-on-unmatched-pattern ./",
+    "lint:fix": "eslint --fix --cache --quiet --no-error-on-unmatched-pattern ./"
   },
   "devDependencies": {
     "@atomico/rollup-plugin-sizes": "^1.1.4",
