@@ -4,7 +4,6 @@
 [![Downloads](https://img.shields.io/npm/dm/@docs.plus/extension-hyperlink.svg)](https://npmcharts.com/compare/@docs.plus/extension-hyperlink)
 [![License](https://img.shields.io/npm/l/@docs.plus/extension-hyperlink.svg)](https://www.npmjs.com/package/@docs.plus/extension-hyperlink)
 
-
 The Link extension adds support for `<a>` tags to the editor. The extension is headless, there is no actual <u>**UI**</u> to add, <u>modify</u> or <u>delete</u> links. The usage example below uses the native JavaScript prompt to show you how that could work.
 
 In a real world application, you would probably add a more sophisticated user interface.
@@ -93,6 +92,7 @@ Hyperlink.configure({
 ### Modals
 
 The Modals configuration option lets you incorporate an interactive user interface similar to Google Docs for **setting** and **previewing** hyperlinks. This provides users with a more intuitive and interactive experience;
+
 - [Dive into the code](https://github.com/HMarzban/extension-hyperlink/blob/4f37ffa18237f10d76c316844b1c2ab20b751fe9/packages/nextjs/src/components/Tiptap.tsx#L21-L28)
 - [Demo](https://github.com/HMarzban/extension-hyperlink#test-drive-with-our-demo-)
 
@@ -150,11 +150,10 @@ function previewHyperlinkModal(options) {
 
 ```ts
 import { Editor } from "@tiptap/core";
-import Tooltip, { TippyInitOptions } from "../helpers/tippyHelper";
 import { find } from "linkifyjs";
 
+let tooltip = undefined;
 
-let tooltip: Tooltip | undefined = undefined;
 function setHyperlinkModal(options) {
   // Create the tooltip instance
   if (!tooltip) tooltip = new options.Tooltip(options);
@@ -228,6 +227,108 @@ function setHyperlinkModal(options) {
 
 </details>
 
+
+<details>
+<summary>The Hyperlink styles.scss</summary>
+
+```scss
+.tippy-box {
+  .hyperlink-preview-modal,
+  .hyperlink-set-modal,
+  .hyperlink-edit-modal {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #dadce0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 6px;
+    box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    margin-top: -6px;
+
+    &__metadata {
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      a {
+        font-size: 0.9rem;
+        margin-right: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      img {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+    }
+
+    &__remove-button,
+    &__edit-button,
+    &__copy-button,
+    &__apply-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.1s ease-in-out;
+      &:hover {
+        background-color: #eee;
+      }
+      > svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    form {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      input {
+        border: 1px solid #dadce0;
+        border-radius: 6px;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.2rem;
+        width: 100%;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      .hyperlink-set-modal__buttons-wrapper,
+      .hyperlink-edit-modal__buttons-wrapper {
+        margin-left: 8px;
+        button {
+          border-radius: 6px;
+          padding: 4px 14px;
+          width: 70px;
+          margin-bottom: 0.2rem;
+          color: #1a73e8;
+          &:hover {
+            background: rgba(26, 115, 232, 0.04);
+            color: #174ea6;
+          }
+        }
+      }
+    }
+  }
+
+  .tippy-svg-arrow {
+    top: -6px !important;
+  }
+}
+```
+
+</details>
+
+
 ````ts
 import {
   Hyperlink,
@@ -246,7 +347,11 @@ Hyperlink.configure({
   },
 })
 ````
+
 > Note: The `previewHyperlinkModal` and `setHyperlinkModal` modals are prebuilt modal boxes. You can use them or create your own modal boxes. To learn how to create your own modal boxes, please check the [source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/modals)
+
+<Su>
+
 
 
 ### Removing and overriding existing html attributes
@@ -345,6 +450,7 @@ this.editor.getAttributes('link').href
 
 Thank you for exploring our Hyperlink extension from docs.plus! We aim to make collaboration and knowledge sharing not just easy, but also enjoyable.
 
-Our extension is inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). While we've incorporated our own enhancements, we'd like to tip our hats to Tiptap for pioneering the "headless" approach that we admire greatly. Please note: We're not affiliated with Tiptap, but we believe in recognizing foundational work.
+Our extension is inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). While we've incorporated our own enhancements, we'd like to tip our hats to Tiptap for pioneering the "headless" approach that we admire greatly.
+> Please note: We're not affiliated with Tiptap, but we believe in recognizing foundational work.
 
 Your feedback and interest in docs.plus are invaluable to us. Share your thoughts, suggestions, or dive deeper into our mission at the [docs.plus](https://github.com/docs-plus/docs.plus) repository. Wish to converse? Connect with us [here](https://github.com/docs-plus/docs.plus#-connect-with-us).
