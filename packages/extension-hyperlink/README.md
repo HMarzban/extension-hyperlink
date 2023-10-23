@@ -90,106 +90,26 @@ Hyperlink.configure({
 })
 ````
 
-### DialogBoxs
+### Modals
 
-The DialogBox configuration option lets you incorporate an interactive user interface similar to Google Docs for **setting** and **previewing** hyperlinks. This provides users with a more intuitive and interactive experience;
+The Modals configuration option lets you incorporate an interactive user interface similar to Google Docs for **setting** and **previewing** hyperlinks. This provides users with a more intuitive and interactive experience;
 - [Dive into the code](https://github.com/HMarzban/extension-hyperlink/blob/4f37ffa18237f10d76c316844b1c2ab20b751fe9/packages/nextjs/src/components/Tiptap.tsx#L21-L28)
 - [Demo](https://github.com/HMarzban/extension-hyperlink#test-drive-with-our-demo-)
 
 <details>
-<summary>The `previewHyperlinkDialogBox` function</summary>
+<summary>The `previewHyperlinkModal` function</summary>
 
 ```ts
-type HyperlinkDialogBoxOptions = {
-  editor: Editor;
-  validate?: (url: string) => boolean;
-  view: EditorView;
-  link: HTMLAnchorElement;
-  node?: any;
-  nodePos: number;
-  tippy: Tooltip;
-};
 
-const previewHyperlink(options: HyperlinkDialogBoxOptions): HTMLElement {
-  const href = options.link.href;
-  const hyperlinkLinkDialogBox = document.createElement("div");
-
-  const hrefTitle = document.createElement("a");
-  hrefTitle.setAttribute("target", "_blank");
-  hrefTitle.setAttribute("rel", "noreferrer");
-  hrefTitle.setAttribute("href", href);
-  hrefTitle.innerText = href;
-
-  hyperlinkLinkDialogBox.append(hrefTitle);
-
-  return hyperlinkLinkDialogBox;
-}
 ```
 
 </details>
 
 <details>
-<summary>The `setHyperlinks` function</summary>
+<summary>The `setHyperlinkModal` function</summary>
 
 ```ts
-type setHyperlinkDialogOptions = {
-  editor: Editor;
-  validate?: (url: string) => boolean;
-  extentionName: string;
-  attributes: Record<string, any>;
-};
 
-let tooltip: Tooltip = undefined;
-
-
-const setHyperlink(options: setHyperlinkDialogOptions): void {
-  // Create the tooltip instance
-  if (!tooltip) tooltip = new Tooltip({ ...options, view: options.editor.view });
-
-  // Initialize the tooltip
-  let { tippyModal } = tooltip.init();
-
-  const hyperlinkLinkDialog = document.createElement("div");
-  const buttonsWrapper = document.createElement("div");
-  const inputsWrapper = document.createElement("div");
-
-  hyperlinkLinkDialog.classList.add("hyperlinkLinkDialog");
-
-  buttonsWrapper.classList.add("buttonsWrapper");
-  inputsWrapper.classList.add("inputsWrapper");
-
-  // create a form that contain url input and a button for submit
-  const form = document.createElement("form");
-  const input = document.createElement("input");
-  const button = document.createElement("button");
-
-  input.setAttribute("type", "text");
-  input.setAttribute("placeholder", "https://example.com");
-  button.setAttribute("type", "submit");
-  button.innerText = "Submit";
-
-  inputsWrapper.append(input);
-  buttonsWrapper.append(button);
-  form.append(inputsWrapper, buttonsWrapper);
-
-  hyperlinkLinkDialog.append(form);
-
-  tippyModal.innerHTML = "";
-  tippyModal.append(hyperlinkLinkDialog);
-
-    // event listenr for submit button
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const url = input.value;
-    if (!url)return;
-
-    return options.editor
-      .chain()
-      .setMark(options.extentionName, { href: url})
-      .setMeta("preventautohyperlink", true)
-      .run();
-  });
-}
 ```
 
 </details>
@@ -197,22 +117,22 @@ const setHyperlink(options: setHyperlinkDialogOptions): void {
 ````ts
 import {
   Hyperlink,
-  previewHyperlink,
-  setHyperlink
+  previewHyperlinkModal,
+  setHyperlinkModal
 } from "@docs.plus/extension-hyperlink";
 
 Hyperlink.configure({
-  dialogBoxs: {
+  modals: {
     previewHyperlink: (data) => {
-      return previewHyperlink(data);
+      return previewHyperlinkModal(data);
     },
     setHyperlink: (data) => {
-      return setHyperlink(data);
+      return setHyperlinkModal(data);
     },
   },
 })
 ````
-> Note: The `previewHyperlink` and `setHyperlink` dialogs are prebuilt dialog boxes. You can use them or create your own dialog boxes. To learn how to create your own dialog boxes, please check the [source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/dialogBoxs)
+> Note: The `previewHyperlinkModal` and `setHyperlinkModal` modals are prebuilt modal boxes. You can use them or create your own modal boxes. To learn how to create your own modal boxes, please check the [source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/modals)
 
 
 ### Removing and overriding existing html attributes

@@ -1,29 +1,27 @@
 import { Editor } from "@tiptap/core";
-import { EditorView } from "@tiptap/pm/view";
-import { editeHyperlinkHandler } from "./editeHyperlink";
+import { editHyperlinkHandler } from "./editeHyperlink";
 import { Copy, LinkSlash, Pencil } from "./icons";
 import Tooltip from "../helpers/tippyHelper";
 
-type HyperlinkModalOptions = {
+export type THyperlinkPreviewModalOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
-  view: EditorView;
   link: HTMLAnchorElement;
   node?: any;
   nodePos: number;
   tippy: Tooltip;
 };
 
-export function previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
+export function previewHyperlinkModal(options: THyperlinkPreviewModalOptions): HTMLElement {
   const href = options.link.href;
 
-  const hyperlinkLinkModal = document.createElement("div");
+  const hyperlinkModal = document.createElement("div");
   const removeButton = document.createElement("button");
   const copyButton = document.createElement("button");
   const editButton = document.createElement("button");
 
   const newBubble = document.createElement("div");
-  newBubble.classList.add("metadata");
+  newBubble.classList.add("hyperlink-preview-modal__metadata");
 
   const hrefTitle = document.createElement("a");
   hrefTitle.setAttribute("target", "_blank");
@@ -58,15 +56,15 @@ export function previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
       console.error("Error fetching metadata:", error);
     });
 
-  hyperlinkLinkModal.classList.add("hyperlinkLinkModal");
+  hyperlinkModal.classList.add("hyperlink-preview-modal");
 
-  removeButton.classList.add("remove");
+  removeButton.classList.add("hyperlink-preview-modal__remove-button");
   removeButton.innerHTML = LinkSlash();
 
-  editButton.classList.add("edit");
+  editButton.classList.add("hyperlink-preview-modal__edit-button");
   editButton.innerHTML = Pencil();
 
-  copyButton.classList.add("copy");
+  copyButton.classList.add("hyperlink-preview-modal__copy-button");
   copyButton.innerHTML = Copy();
 
   removeButton.addEventListener("click", () => {
@@ -74,16 +72,14 @@ export function previewHyperlink(options: HyperlinkModalOptions): HTMLElement {
     return options.editor.chain().focus().unsetHyperlink().run();
   });
 
-  editButton.addEventListener("click", () =>
-    editeHyperlinkHandler({ ...options, hyperlinkLinkModal })
-  );
+  editButton.addEventListener("click", () => editHyperlinkHandler({ ...options, hyperlinkModal }));
 
   copyButton.addEventListener("click", () => {
     options.tippy.hide();
     navigator.clipboard.writeText(href);
   });
 
-  hyperlinkLinkModal.append(newBubble, copyButton, editButton, removeButton);
+  hyperlinkModal.append(newBubble, copyButton, editButton, removeButton);
 
-  return hyperlinkLinkModal;
+  return hyperlinkModal;
 }

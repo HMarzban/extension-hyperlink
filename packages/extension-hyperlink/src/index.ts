@@ -2,16 +2,16 @@ export * from "./hyperlink";
 
 export * from "./helpers/tippyHelper";
 
-export * from "./dialogBoxs/previewHyperlink";
+export * from "./modals/previewHyperlink";
 
-export * from "./dialogBoxs/setHyperlink";
+export * from "./modals/setHyperlink";
 
-import { previewHyperlink } from "./dialogBoxs/previewHyperlink";
+import { previewHyperlinkModal } from "./modals/previewHyperlink";
 
-import { setHyperlink } from "./dialogBoxs/setHyperlink";
+import { setHyperlinkModal } from "./modals/setHyperlink";
 
 import Tooltip from "./helpers/tippyHelper";
 
 import { Hyperlink } from "./hyperlink";
 
-export { Hyperlink, Tooltip, previewHyperlink, setHyperlink };
+export { Hyperlink, Tooltip, previewHyperlinkModal, setHyperlinkModal };

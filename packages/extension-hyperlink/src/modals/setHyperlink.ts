@@ -1,32 +1,33 @@
 import { Editor } from "@tiptap/core";
-import Tooltip from "../helpers/tippyHelper";
+import Tooltip, { TippyInitOptions } from "../helpers/tippyHelper";
 import { find } from "linkifyjs";
-import { roundArrow } from "tippy.js";
 
-type setHyperlinkModalOptions = {
+export type TSetHyperlinkModalOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
   extentionName: string;
-  attributes: Record<string, any>;
+  attributes?: { href: string; target?: string | null };
+  Tooltip: new (options: TippyInitOptions) => Tooltip;
+  roundArrow: string;
 };
 
 let tooltip: Tooltip | undefined = undefined;
 
-export function setHyperlink(options: setHyperlinkModalOptions): void {
+export function setHyperlinkModal(options: TSetHyperlinkModalOptions): void {
   // Create the tooltip instance
-  if (!tooltip) tooltip = new Tooltip({ ...options, view: options.editor.view });
+  if (!tooltip) tooltip = new options.Tooltip(options);
 
   // Initialize the tooltip
   let { tippyModal } = tooltip.init();
 
-  const hyperlinkLinkModal = document.createElement("div");
+  const hyperlinkModal = document.createElement("div");
   const buttonsWrapper = document.createElement("div");
   const inputsWrapper = document.createElement("div");
 
-  hyperlinkLinkModal.classList.add("hyperlinkLinkModal");
+  hyperlinkModal.classList.add("hyperlink-set-modal");
 
-  buttonsWrapper.classList.add("buttonsWrapper");
-  inputsWrapper.classList.add("inputsWrapper");
+  buttonsWrapper.classList.add("hyperlink-set-modal__buttons-wrapper");
+  inputsWrapper.classList.add("hyperlink-set-modal__inputs-wrapper");
 
   // create a form that contain url input and a button for submit
   const form = document.createElement("form");
@@ -42,12 +43,12 @@ export function setHyperlink(options: setHyperlinkModalOptions): void {
   buttonsWrapper.append(button);
   form.append(inputsWrapper, buttonsWrapper);
 
-  hyperlinkLinkModal.append(form);
+  hyperlinkModal.append(form);
 
   tippyModal.innerHTML = "";
-  tippyModal.append(hyperlinkLinkModal);
+  tippyModal.append(hyperlinkModal);
   tooltip.update(options.editor.view, {
-    arrow: roundArrow,
+    arrow: options.roundArrow,
   });
 
   // make sure

@@ -10,8 +10,7 @@ type ClickHandlerOptions = {
   type: MarkType;
   editor: Editor;
   validate?: (url: string) => boolean;
-  view: EditorView;
-  dialogBox?: ((options: any) => void | HTMLElement) | null;
+  modal?: ((options: any) => void | HTMLElement) | null;
 };
 
 export default function clickHandler(options: ClickHandlerOptions): Plugin {
@@ -41,8 +40,8 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         const href = link?.href ?? attrs.href;
         const target = link?.target ?? attrs.target;
 
-        // If there is no previewHyperlink dialogBox provided, then open the link in new window
-        if (!options.dialogBox) {
+        // If there is no previewHyperlink modal provided, then open the link in new window
+        if (!options.modal) {
           if (link && href) {
             window.open(href, target);
           }
@@ -53,17 +52,17 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
         if (!link?.href) return tooltip.hide();
 
         // Create a preview of the hyperlink
-        const hyperlinkPreview = options.dialogBox({
+        const hyperlinkPreview = options.modal({
           link,
           nodePos,
           tippy: tooltip,
           ...options,
         });
 
-        // If there is no hyperlink preview, hide the dialogBox
+        // If there is no hyperlink preview, hide the modal
         if (!hyperlinkPreview) return tooltip.hide();
 
-        // Empty the dialogBox and append the hyperlink preview box
+        // Empty the modal and append the hyperlink preview box
 
         while (tippyModal.firstChild) {
           tippyModal.removeChild(tippyModal.firstChild);
@@ -71,8 +70,8 @@ export default function clickHandler(options: ClickHandlerOptions): Plugin {
 
         tippyModal.append(hyperlinkPreview);
 
-        // Update the dialogBox position
-        tooltip.update(options.view);
+        // Update the modal position
+        tooltip.update(options.editor.view);
 
         return false;
       },

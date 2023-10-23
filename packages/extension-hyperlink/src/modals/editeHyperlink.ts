@@ -1,5 +1,4 @@
 import { Editor } from "@tiptap/core";
-import { EditorView } from "@tiptap/pm/view";
 import { roundArrow } from "tippy.js";
 import { find } from "linkifyjs";
 import Tooltip from "../helpers/tippyHelper";
@@ -7,13 +6,12 @@ import Tooltip from "../helpers/tippyHelper";
 type EditHyperlinkModalOptions = {
   editor: Editor;
   validate?: (url: string) => boolean;
-  view: EditorView;
   link: HTMLAnchorElement;
-  hyperlinkLinkModal: HTMLElement;
+  hyperlinkModal: HTMLElement;
   tippy: Tooltip;
 };
 
-export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
+export const editHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
   // Create the form
   const form = document.createElement("form");
 
@@ -24,8 +22,8 @@ export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
   const hrefInput = document.createElement("input");
   const applyButton = document.createElement("button");
 
-  buttonsWrapper.classList.add("buttonsWrapper");
-  inputsWrapper.classList.add("inputsWrapper");
+  buttonsWrapper.classList.add("hyperlink-edit-modal__buttons-wrapper");
+  inputsWrapper.classList.add("hyperlink-edit-modal__inputs-wrapper");
 
   linkTextInput.type = "text";
   linkTextInput.value = options.link?.innerText || "";
@@ -36,7 +34,7 @@ export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
   hrefInput.placeholder = "Enter href";
 
   applyButton.type = "submit";
-  applyButton.classList.add("btn_applyModal");
+  applyButton.classList.add("hyperlink-edit-modal__apply-button");
   applyButton.innerText = "Apply";
 
   buttonsWrapper.append(applyButton);
@@ -45,8 +43,8 @@ export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
   // Append to form
   form.append(inputsWrapper, buttonsWrapper);
 
-  options.hyperlinkLinkModal.innerHTML = "";
-  options.hyperlinkLinkModal.appendChild(form);
+  options.hyperlinkModal.innerHTML = "";
+  options.hyperlinkModal.appendChild(form);
 
   hrefInput.addEventListener("keydown", () => {
     hrefInput.style.outlineColor = " #dadce0";
@@ -93,7 +91,7 @@ export const editeHyperlinkHandler = (options: EditHyperlinkModalOptions) => {
   });
 
   // Show tooltip
-  options.tippy.update(options.view, {
+  options.tippy.update(options.editor.view, {
     arrow: roundArrow,
   });
 

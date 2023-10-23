@@ -1,12 +1,11 @@
 import tippy, { Instance, Props, roundArrow } from "tippy.js";
 import { Editor } from "@tiptap/core";
 import { EditorView } from "@tiptap/pm/view";
-import { getAttributes, posToDOMRect } from "@tiptap/core";
+import { posToDOMRect } from "@tiptap/core";
 
-interface TippyInitOptions {
+export interface TippyInitOptions {
   editor: Editor;
   validate?: (url: string) => boolean;
-  view: EditorView;
 }
 
 class Tooltip {
@@ -18,7 +17,7 @@ class Tooltip {
 
   constructor(options: TippyInitOptions) {
     this.editor = options.editor;
-    this.view = options.view;
+    this.view = this.editor.view;
     this.tippyWrapper = document.createElement("div");
     this.tippyWrapper.addEventListener("mousedown", this.mousedownHandler, {
       capture: true,

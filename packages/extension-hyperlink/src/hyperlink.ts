@@ -5,6 +5,10 @@ import autoHyperlink from "./helpers/autoHyperlink";
 import clickHandler from "./helpers/clickHandler";
 import { pasteHandler } from "./helpers/pasteHandler";
 import editHyperlinkHelper from "./helpers/editHyperlink";
+import Tooltip from "./helpers/tippyHelper";
+import { roundArrow } from "tippy.js";
+import { TSetHyperlinkModalOptions } from "./modals/setHyperlink";
+import { THyperlinkPreviewModalOptions } from "./modals/previewHyperlink";
 
 export interface LinkProtocolOptions {
   scheme: string;
@@ -33,13 +37,13 @@ export interface HyperlinkOptions {
    */
   HTMLAttributes: Record<string, any>;
   /**
-   * A list of dialogBoxs to be rendered.
+   * A list of modals to be rendered.
    * @default null
    * @example
    */
-  dialogBoxs: {
-    previewHyperlink?: ((options: any) => void | HTMLElement) | null;
-    setHyperlink?: ((options: any) => void | HTMLElement) | null;
+  modals: {
+    previewHyperlink?: ((options: THyperlinkPreviewModalOptions) => void | HTMLElement) | null;
+    setHyperlink?: ((options: TSetHyperlinkModalOptions) => void | HTMLElement) | null;
   };
   /**
    * A validation function that modifies link verification for the auto linker.
@@ -116,7 +120,7 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
         rel: "noopener noreferrer nofollow",
         class: null,
       },
-      dialogBoxs: {
+      modals: {
         previewHyperlink: null,
         setHyperlink: null,
       },
@@ -151,17 +155,19 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
       setHyperlink:
         (attributes) =>
         ({ editor, chain }) => {
-          if (!this.options.dialogBoxs.setHyperlink) {
+          if (!this.options.modals.setHyperlink) {
             return chain()
               .setMark(this.name, attributes)
               .setMeta("preventAutohyperlink", true)
               .run();
           } else {
-            this.options.dialogBoxs.setHyperlink({
+            this.options.modals.setHyperlink({
               editor,
               validate: this.options.validate,
               extentionName: this.name,
               attributes,
+              Tooltip,
+              roundArrow,
             });
             return true;
           }
@@ -252,8 +258,7 @@ export const Hyperlink = Mark.create<HyperlinkOptions>({
           type: this.type,
           editor: this.editor,
           validate: this.options.validate,
-          view: this.editor.view,
-          dialogBox: this.options.dialogBoxs.previewHyperlink,
+          modal: this.options.modals.previewHyperlink,
         })
       );
     }
