@@ -24,8 +24,8 @@ editor.commands.editHyperlink({
   import { useEditor, EditorContent } from "@tiptap/react";
   import {
     Hyperlink,
-    previewHyperlink,
-    setHyperlink
+    previewHyperlinkModal,
+    setHyperlinkModal,
   } from "@docs.plus/extension-hyperlink";
 
   // Tiptap Editor, React.js
@@ -34,9 +34,9 @@ editor.commands.editHyperlink({
       Hyperlink.configure({
         hyperlinkOnPaste: false,
         openOnClick: true,
-        dialogBoxs: {
-          previewHyperlink: previewHyperlink,
-          setHyperlink: setHyperlink,
+        modals: {
+          previewHyperlink: previewHyperlinkModal,
+          setHyperlink: setHyperlinkModal,
         },
       }),
     ],
