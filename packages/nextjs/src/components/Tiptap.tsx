@@ -3,7 +3,11 @@ import StarterKit from "@tiptap/starter-kit";
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
-import { Hyperlink, previewHyperlink, setHyperlink } from "@docs.plus/extension-hyperlink";
+import {
+  Hyperlink,
+  previewHyperlinkModal,
+  setHyperlinkModal,
+} from "@docs.plus/extension-hyperlink";
 import editorContents from "./editorContents";
 import MenuBar from "./MenuBar";
 
@@ -18,9 +22,9 @@ const Tiptap = () => {
       Hyperlink.configure({
         hyperlinkOnPaste: false,
         openOnClick: true,
-        dialogBoxs: {
-          previewHyperlink: previewHyperlink,
-          setHyperlink: setHyperlink,
+        modals: {
+          previewHyperlink: previewHyperlinkModal,
+          setHyperlink: setHyperlinkModal,
         },
       }),
       StarterKit.configure({
