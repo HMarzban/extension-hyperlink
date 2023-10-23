@@ -100,6 +100,46 @@ The Modals configuration option lets you incorporate an interactive user interfa
 <summary>The `previewHyperlinkModal` function</summary>
 
 ```ts
+function previewHyperlinkModal(options) {
+  const href = options.link.href;
+
+  const hyperlinkModal = document.createElement("div");
+  const removeButton = document.createElement("button");
+  const copyButton = document.createElement("button");
+
+  const newBubble = document.createElement("div");
+  newBubble.classList.add("hyperlink-preview-modal__metadata");
+
+  const hrefTitle = document.createElement("a");
+  hrefTitle.setAttribute("target", "_blank");
+  hrefTitle.setAttribute("rel", "noreferrer");
+  hrefTitle.setAttribute("href", href);
+  hrefTitle.innerText = href;
+
+  newBubble.append(hrefTitle);
+
+  hyperlinkModal.classList.add("hyperlink-preview-modal");
+
+  removeButton.classList.add("hyperlink-preview-modal__remove-button");
+  removeButton.innerHTML = "remove";
+
+  copyButton.classList.add("hyperlink-preview-modal__copy-button");
+  copyButton.innerHTML = "copy";
+
+  removeButton.addEventListener("click", () => {
+    options.tippy.hide();
+    return options.editor.chain().focus().unsetHyperlink().run();
+  });
+
+  copyButton.addEventListener("click", () => {
+    options.tippy.hide();
+    navigator.clipboard.writeText(href);
+  });
+
+  hyperlinkModal.append(newBubble, copyButton, removeButton);
+
+  return hyperlinkModal;
+}
 
 ```
 
@@ -109,7 +149,81 @@ The Modals configuration option lets you incorporate an interactive user interfa
 <summary>The `setHyperlinkModal` function</summary>
 
 ```ts
+import { Editor } from "@tiptap/core";
+import Tooltip, { TippyInitOptions } from "../helpers/tippyHelper";
+import { find } from "linkifyjs";
 
+
+let tooltip: Tooltip | undefined = undefined;
+function setHyperlinkModal(options) {
+  // Create the tooltip instance
+  if (!tooltip) tooltip = new options.Tooltip(options);
+
+  // Initialize the tooltip
+  let { tippyModal } = tooltip.init();
+
+  const hyperlinkModal = document.createElement("div");
+  const buttonsWrapper = document.createElement("div");
+  const inputsWrapper = document.createElement("div");
+
+  hyperlinkModal.classList.add("hyperlink-set-modal");
+
+  buttonsWrapper.classList.add("hyperlink-set-modal__buttons-wrapper");
+  inputsWrapper.classList.add("hyperlink-set-modal__inputs-wrapper");
+
+  // create a form that contain url input and a button for submit
+  const form = document.createElement("form");
+  const input = document.createElement("input");
+  const button = document.createElement("button");
+
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", "https://example.com");
+  button.setAttribute("type", "submit");
+  button.innerText = "Submit";
+
+  inputsWrapper.append(input);
+  buttonsWrapper.append(button);
+  form.append(inputsWrapper, buttonsWrapper);
+
+  hyperlinkModal.append(form);
+
+  tippyModal.innerHTML = "";
+  tippyModal.append(hyperlinkModal);
+  tooltip.update(options.editor.view, {
+    arrow: options.roundArrow,
+  });
+
+  // make sure
+  setTimeout(() => input.focus();, 100);
+
+  // event listenr for submit button
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const url = input.value;
+
+    if (!url) return;
+
+    const sanitizeURL = find(url)
+      .filter((link) => link.isLink)
+      .filter((link) => {
+        if (options.validate) {
+          return options.validate(link.value);
+        }
+        return true;
+      })
+      .at(0);
+
+    if (!sanitizeURL?.href) return;
+
+    tooltip?.hide();
+
+    return options.editor
+      .chain()
+      .setMark(options.extentionName, { href: sanitizeURL.href })
+      .setMeta("preventautohyperlink", true)
+      .run();
+  });
+}
 ```
 
 </details>
