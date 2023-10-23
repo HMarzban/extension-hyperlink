@@ -63,7 +63,7 @@ const MenuBar: React.FC<{ editor: TiptapEditor | null }> = ({ editor }) => {
   if (!editor) return null;
 
   return (
-    <div className="menuBar">
+    <div className="toolbar pb-2 border-b border-gray-300 flex flex-row flex-wrap justify-start items-center">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -199,12 +199,6 @@ const MenuBar: React.FC<{ editor: TiptapEditor | null }> = ({ editor }) => {
       </button>
 
       <button onClick={() => editor.chain().focus().setHyperlink()}>set hyperlink</button>
-      <button
-        onClick={() => editor.chain().focus().unsetHyperlink()}
-        disabled={!editor.isActive("hyperlink")}
-      >
-        get hyperlink metadata
-      </button>
     </div>
   );
 };
