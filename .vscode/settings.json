@@ -1,5 +1,7 @@
 {
-    "conventionalCommits.scopes": [
-        "extension-hyperlink"
-    ]
+  "conventionalCommits.scopes": [
+    "@docs.plus/extension-hyperlink",
+    "@docs.plus/demo",
+    "docs.plus"
+  ]
 }
