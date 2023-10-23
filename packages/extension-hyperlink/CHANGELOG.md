@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/docs-plus/docs.plus/compare/v1.4.0...v1.5.0) (2023-10-23)
+
+**Note:** Version bump only for package @docs.plus/extension-hyperlink
+
+
+
+
+
 # [1.4.0](https://github.com/docs-plus/docs.plus/compare/v1.3.12...v1.4.0) (2023-10-20)
 
 **Note:** Version bump only for package @docs.plus/extension-hyperlink
