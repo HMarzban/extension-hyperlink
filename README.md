@@ -4,13 +4,14 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
 Hey there! We're excited to present a game-changing extension for your [Tiptap](https://tiptap.dev/) editor that supercharges your hyperlink game. You know the sleek, easy-to-use Google Docs link plugin? Yeah, we've taken some inspiration from there and brought it over to Tiptap, just for you. So, get ready to enjoy a seamless, user-friendly experience!
 
 ## Exciting Features 💡
+
 Here's what you can do with our extension:
 
 - Editing your hyperlink text and URL is as easy as pie now! Just run these commands:
+
 ```js
 editor.commands.editHyperLinkText('New Text')
 editor.commands.editHyperLinkHref('<https://new-url.com>')
@@ -19,7 +20,9 @@ editor.commands.editHyperlink({
   newURL: '<https://new-url.com>'
 })
 ```
-  - Customize your own hyperlink previews and set hyperlinks with modals. Get creative and design any UI for the extension, extend it, make it yours! To do this, use:
+
+- Customize your own hyperlink previews and set hyperlinks with modals. Get creative and design any UI for the extension, extend it, make it yours! To do this, use:
+
   ```js
   import { useEditor, EditorContent } from "@tiptap/react";
   import {
@@ -50,18 +53,23 @@ editor.commands.editHyperlink({
 We designed the hyperlink extension as a headless UI. You're in the driver's seat here! This means you can build your own interface while using our back-end functions. If you want to keep your application's UI consistent, this is perfect for you.
 
 ## Setting Up - Easy As 1, 2, 3! 🔧
-Getting the hyperlink extension up and running on your project is super simple. Follow these steps:
+
+Getting the `hyperlink` extension up and running on your project is super simple. Follow these steps:
 
 1. Install the package:
+
 ```bach
-$ npm install @tiptap/extension-hyperlink
+npm install @docs.plus/extension-hyperlink
 ```
+
 2. Import the extension into your project:
+
 ```bash
 import { Hyperlink } from '@docs.plus/extension-hyperlink'
 ```
 
 3. Add the extension to your Tiptap Editor:
+
 ```js
 editor = new Editor({
   // Other configurations
@@ -73,25 +81,34 @@ editor = new Editor({
 });
 ```
 
-
-You can find more detailed setup instructions [here](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
+> You can find more detailed setup instructions [here](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink).
 
 ## Test Drive With Our Demo 🚗
 
 Want to take a spin with our Hyperlink extension? We have a <u>**Demo ready**</u> for you:
 
+### Step 0: Clone the Repo
+
+First, clone the repo to your local machine:
+
+```bash
+git clone https://github.com/HMarzban/extension-hyperlink.git
+```
+
 ### Step 1: Get the Essentials
 
 Before hitting the road, make sure your tank's full! Install the necessary dependencies with:
+
 ```bash
-$ yarn install
+yarn install
 ```
 
 ### Step 2: Run the Demo
 
 With everything in place, you're ready to go. Run the demo with:
+
 ```bash
-$ yarn start
+yarn start
 ```
 
 Now, you can explore all that our <u>Hyperlink extension</u> has to offer in a real-life setting. Enjoy the ride!
@@ -100,8 +117,8 @@ Now, you can explore all that our <u>Hyperlink extension</u> has to offer in a r
 
 ![hyperlin-demo](https://raw.githubusercontent.com/HMarzban/extension-hyperlink/main/packages/nextjs/public/hyperlink-demo.gif)
 
-
 ## What's Next? 🚀
+
 In our mission to make your life easier, we have some exciting features lined up:
 
 - Finding and selecting all links in the document.
@@ -110,6 +127,7 @@ In our mission to make your life easier, we have some exciting features lined up
 - And much more on the way!
 
 ## The Legal Bits 📜
+
 This project is under the MIT license, which means you're free to use, modify, distribute, and even sell your modifications under the same terms.
 
 ## Join Our Journey 🤝
@@ -121,4 +139,3 @@ We're grateful you chose our hyperlink extension. We hope it makes your Tiptap e
 ### Making Your docs.plus Even Better 💼
 
 This extension is primarily built for the [docs.plus](http://github.com/docs-plus/docs.plus) project, an open-source platform for real-time collaboration. With this tool, communities can share and organize information in a logical, hierarchical manner, just like they want it.
-

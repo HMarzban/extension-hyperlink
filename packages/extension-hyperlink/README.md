@@ -11,7 +11,7 @@ In a real world application, you would probably add a more sophisticated user in
 ## Installation
 
 ````sh
-npm install @docsplus/extension-hyperlink
+npm install @docs.plus/extension-hyperlink
 ````
 
 ## Settings
@@ -227,7 +227,6 @@ function setHyperlinkModal(options) {
 
 </details>
 
-
 <details>
 <summary>The Hyperlink styles.scss</summary>
 
@@ -328,7 +327,6 @@ function setHyperlinkModal(options) {
 
 </details>
 
-
 ````ts
 import {
   Hyperlink,
@@ -351,8 +349,6 @@ Hyperlink.configure({
 > Note: The `previewHyperlinkModal` and `setHyperlinkModal` modals are prebuilt modal boxes. You can use them or create your own modal boxes. To learn how to create your own modal boxes, please check the [source code](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink/src/modals)
 
 <Su>
-
-
 
 ### Removing and overriding existing html attributes
 
