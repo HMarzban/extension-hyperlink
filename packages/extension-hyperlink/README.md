@@ -437,7 +437,7 @@ this.editor.getAttributes('link').href
 ## Sorce code and Example
 
 - Demo:
-[packages/extension-hyperlink](https://github.com/HMarzban/extension-hyperlink)
+[extension-hyperlink](https://github.com/HMarzban/extension-hyperlink#test-drive-with-our-demo-)
 - Extension:
 [packages/extension-hyperlink](https://github.com/HMarzban/extension-hyperlink/tree/main/packages/extension-hyperlink)
 - Usage:  [packages/nextjs/src/components/Tiptap.tsx](https://github.com/HMarzban/extension-hyperlink/blob/59f45eba1886202f4840eb2112c34574c16fe68a/packages/nextjs/src/components/Tiptap.tsx#L19-L29)
@@ -449,4 +449,6 @@ Thank you for exploring our Hyperlink extension from docs.plus! We aim to make c
 Our extension is inspired by Tiptap's [extension-link](https://github.com/ueberdosis/tiptap/tree/main/packages/extension-link). While we've incorporated our own enhancements, we'd like to tip our hats to Tiptap for pioneering the "headless" approach that we admire greatly.
 > Please note: We're not affiliated with Tiptap, but we believe in recognizing foundational work.
 
-Your feedback and interest in docs.plus are invaluable to us. Share your thoughts, suggestions, or dive deeper into our mission at the [docs.plus](https://github.com/docs-plus/docs.plus) repository. Wish to converse? Connect with us [here](https://github.com/docs-plus/docs.plus#-connect-with-us).
+Your feedback and interest in docs.plus are invaluable to us. Share your thoughts, suggestions, or dive deeper into our mission at the [docs.plus](https://github.com/docs-plus/docs.plus) repository.
+
+Wish to converse? Connect with us [here](https://github.com/docs-plus/docs.plus#-connect-with-us).
