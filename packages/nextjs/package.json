@@ -10,31 +10,30 @@
     "server": "npx @hocuspocus/cli --sqlite"
   },
   "dependencies": {
-    "@tiptap/extension-color": "^2.1.11",
-    "@tiptap/extension-list-item": "^2.1.11",
-    "@tiptap/extension-text-style": "^2.1.11",
-    "@tiptap/pm": "^2.1.11",
-    "@tiptap/react": "^2.1.11",
-    "@tiptap/starter-kit": "^2.1.11",
-    "@types/node": "20.6.5",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
+    "@tiptap/extension-color": "^2.1.16",
+    "@tiptap/extension-list-item": "^2.1.16",
+    "@tiptap/extension-text-style": "^2.1.16",
+    "@tiptap/pm": "^2.1.16",
+    "@tiptap/react": "^2.1.16",
+    "@tiptap/starter-kit": "^2.1.16",
+    "@types/node": "20.11.0",
+    "@types/react": "18.2.47",
+    "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.16",
-    "axios": "^1.5.0",
-    "eslint": "8.50.0",
-    "eslint-config-next": "13.5.2",
-    "jsdom": "^22.1.0",
+    "axios": "^1.6.5",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
     "metadata-scraper": "^0.2.61",
-    "next": "13.5.2",
-    "postcss": "8.4.30",
+    "next": "14.0.4",
+    "postcss": "8.4.33",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.68.0",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.2.2",
-    "url-metadata": "^3.3.0"
+    "sass": "^1.69.7",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.3.3",
+    "url-metadata": "^3.3.1"
   },
   "devDependencies": {
-    "sass": "^1.68.0"
+    "sass": "^1.69.7"
   }
 }
