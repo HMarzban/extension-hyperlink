@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Current Hyperlink issues
+    url: https://github.com/docs-plus/docs.plus/issues/new/choose
+    about: Report current package bugs and feature requests in the docs.plus monorepo.
+  - name: 1.x documentation
+    url: https://github.com/HMarzban/extension-hyperlink/blob/main/README-1.x.md
+    about: Read the historical standalone API before reproducing an old report.

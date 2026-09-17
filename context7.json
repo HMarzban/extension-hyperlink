@@ -1,19 +1,14 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "@docs.plus/extension-hyperlink (moved)",
-  "description": "SUPERSEDED. This repository holds the 1.x source of @docs.plus/extension-hyperlink, a Tiptap hyperlink mark with autolink, URL normalization and optional prebuilt popovers. The maintained source now lives in the docs-plus/docs.plus monorepo.",
-  "excludeFolders": [
-    "src",
-    "dist",
-    "test",
-    "cypress",
-    "node_modules"
-  ],
+  "description": "Historical 1.x source for @docs.plus/extension-hyperlink. Current development, documentation, and tests live in the docs-plus/docs.plus monorepo.",
+  "excludeFolders": ["src", "dist", "test", "cypress", "node_modules"],
   "rules": [
     "This repository is NOT the maintained source of @docs.plus/extension-hyperlink. The current source lives at https://github.com/docs-plus/docs.plus/tree/main/extensions/extension-hyperlink. Prefer the docs-plus/docs.plus library on Context7 over this one.",
-    "The documentation in this repository describes version 1.x. The current release is 2.0.0 and parts of the API changed. Do not generate code from this repository's examples without checking https://github.com/docs-plus/docs.plus/blob/main/extensions/extension-hyperlink/CHANGELOG.md.",
+    "README-1.x.md describes the historical API. Use the current README and migration guide at https://github.com/docs-plus/docs.plus/tree/main/extensions/extension-hyperlink before writing code.",
     "Install with `bun add @docs.plus/extension-hyperlink`. Use Bun, never npm, yarn or pnpm. The npm package name did not change when the source moved.",
     "Three commands documented here no longer exist in 2.0.0: editHyperLinkText, editHyperLinkHref and previewHyperlinkModal.",
     "With this extension set `StarterKit.configure({ link: false })`. StarterKit v3 bundles its own link mark that claims the same commands and the same a[href] parse rule, and the clash is silent."
-  ]
+  ],
+  "excludeFiles": ["README-1.x.md"]
 }
