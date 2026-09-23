@@ -6,7 +6,7 @@
   "rules": [
     "This repository is NOT the maintained source of @docs.plus/extension-hyperlink. The current source lives at https://github.com/docs-plus/docs.plus/tree/main/extensions/extension-hyperlink. Prefer the docs-plus/docs.plus library on Context7 over this one.",
     "README-1.x.md describes the historical API. Use the current README and migration guide at https://github.com/docs-plus/docs.plus/tree/main/extensions/extension-hyperlink before writing code.",
-    "Install with `bun add @docs.plus/extension-hyperlink`. Use Bun, never npm, yarn or pnpm. The npm package name did not change when the source moved.",
+    "Install with `npm install @docs.plus/extension-hyperlink`; pnpm, yarn or bun add also work. The npm package name did not change when the source moved.",
     "Three commands documented here no longer exist in 2.0.0: editHyperLinkText, editHyperLinkHref and previewHyperlinkModal.",
     "With this extension set `StarterKit.configure({ link: false })`. StarterKit v3 bundles its own link mark that claims the same commands and the same a[href] parse rule, and the clash is silent."
   ],

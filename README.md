@@ -9,8 +9,10 @@ This repository preserves the standalone 1.x source and its issue history. Use t
 The npm package name stays the same:
 
 ```sh
-bun add @docs.plus/extension-hyperlink
+npm install @docs.plus/extension-hyperlink
 ```
+
+Or use `pnpm add @docs.plus/extension-hyperlink`, `yarn add @docs.plus/extension-hyperlink`, or `bun add @docs.plus/extension-hyperlink`.
 
 Read the [current documentation](https://github.com/docs-plus/docs.plus/tree/main/extensions/extension-hyperlink#readme) and [migration notes](https://github.com/docs-plus/docs.plus/blob/main/extensions/extension-hyperlink/CHANGELOG.md) before upgrading. The 2.0.0 release changes parts of the 1.x API.
 
